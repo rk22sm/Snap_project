@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { hash } from "bcrypt";
 import { z } from "zod";
 
-import { db } from "@/db";
+import { db } from "@/lib/db";
 
 // define a schema for input validation
 const userSchema = z.object({

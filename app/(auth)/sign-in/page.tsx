@@ -1,5 +1,11 @@
-function SignIn() {
-    return <div>Sign In page</div>;
+import SignInForm from "@/components/signin-form";
+
+function Page() {
+    return (
+        <div className="grid min-h-screen content-center p-4">
+            <SignInForm />
+        </div>
+    );
 }
 
-export default SignIn;
+export default Page;

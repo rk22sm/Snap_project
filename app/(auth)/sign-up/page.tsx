@@ -1,6 +1,6 @@
 import SignUpForm from "@/components/signup-form";
 
-function SignIn() {
+function Page() {
     return (
         <div className="grid min-h-screen content-center p-4">
             <SignUpForm />
@@ -8,4 +8,4 @@ function SignIn() {
     );
 }
 
-export default SignIn;
+export default Page;
