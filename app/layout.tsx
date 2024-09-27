@@ -3,6 +3,8 @@ import { Metadata, Viewport } from "next";
 import React from "react";
 import { Inter } from "next/font/google";
 import { Toaster } from "sonner";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 
 import { Providers } from "./providers";
 
@@ -67,6 +69,10 @@ export default function RootLayout({
                     <div className="relative min-h-svh">{children}</div>
                 </Providers>
                 <Toaster richColors={true} />
+                {/* Vercel Analytics for Web Performance Monitoring */}
+                <Analytics />
+                {/* Vercel Speed Insights for Page Speed Analysis */}
+                <SpeedInsights />
             </body>
         </html>
     );
