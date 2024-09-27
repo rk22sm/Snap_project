@@ -2,29 +2,6 @@ import * as React from "react";
 
 import { IconSvgProps } from "@/types";
 
-// CoalTrack Logo
-export const Logo: React.FC<IconSvgProps> = ({
-    size = 36,
-    width,
-    height,
-    ...props
-}) => (
-    <svg
-        fill="none"
-        height={size || height}
-        viewBox="0 0 100 100"
-        width={size || width}
-        {...props}
-    >
-        <path
-            clipRule="evenodd"
-            d="M23.903 48.6086C15.8116 -7.11039 81.9889 24.3506 67.9889 36.3506C19.9889 6.85063 37.3478 70.5496 61.0018 69.8286C109.489 68.3506 31.9943 104.328 23.903 48.6086Z"
-            fill="currentColor"
-            fillRule="evenodd"
-        />
-    </svg>
-);
-
 // Google Logo
 export const Google: React.FC<IconSvgProps> = ({
     size = 36,

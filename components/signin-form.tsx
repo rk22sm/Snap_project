@@ -70,14 +70,14 @@ const SignInForm = () => {
     return (
         <div className="m-auto w-full max-w-lg">
             <Image
-                alt="CoalTrack logo"
+                alt="CodeSnap logo"
                 className="m-auto mb-4 md:mx-0 md:mb-6"
                 height={50}
-                src="/CoalTrack.png"
+                src="/logo.png"
                 width={50}
             />
             <div className="mb-4 grid gap-2 text-center md:mb-6 md:text-left">
-                <h1 className="text-xl font-bold">Sign in to CoalTrack</h1>
+                <h1 className="text-xl font-bold">Sign in to CodeSnap</h1>
                 <p className="opacity-70">
                     Don&lsquo;t have an account,&nbsp;
                     <Link href="/sign-up">Sign up</Link>.

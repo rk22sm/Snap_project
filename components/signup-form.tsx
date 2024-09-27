@@ -81,16 +81,14 @@ const SignUpForm = () => {
     return (
         <div className="m-auto w-full max-w-lg">
             <Image
-                alt="CoalTrack logo"
+                alt="CodeSnap logo"
                 className="m-auto mb-4 md:mx-0 md:mb-6"
                 height={50}
-                src="/CoalTrack.png"
+                src="/logo.png"
                 width={50}
             />
             <div className="mb-4 grid gap-2 text-center md:mb-6 md:text-left">
-                <h1 className="text-xl font-bold">
-                    Create a CoalTrack account
-                </h1>
+                <h1 className="text-xl font-bold">Create a CodeSnap account</h1>
                 <p className="opacity-70">
                     Already have an account?&nbsp;
                     <Link href="/sign-in">Sign in</Link>.

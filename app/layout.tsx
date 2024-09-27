@@ -11,36 +11,36 @@ import { Providers } from "./providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: "CoalTrack - Project Monitoring for Coal Sector R&D",
+    title: "CodeSnap - Share Code Instantly",
     description:
-        "CoalTrack is a cross-platform web app for real-time monitoring and management of R&D and S&T projects in the coal sector. Admins and investigators can track progress, manage documents, and receive automated alerts for deadlines.",
+        "CodeSnap is a simple platform for sharing code snippets quickly and easily. Create, share, and view code snippets with just a link.",
     keywords:
-        "CoalTrack, project monitoring, coal sector R&D, S&T projects, real-time analytics, project management, CMPDI, automated alerts, document management",
+        "CodeSnap, code sharing, snippets, instant code sharing, developers, programming, share code, code snippets, coding tools",
     authors: {
-        name: "The Broken Thread",
-        url: "https://github.com/The-Broken-Thread",
+        name: "Ranit Manik",
+        url: "https://github.com/RanitManik",
     },
-    metadataBase: new URL("https://coal-track.vercel.app"),
+    metadataBase: new URL("https://codesnap-pro.vercel.app/"),
     openGraph: {
-        title: "CoalTrack - Project Monitoring for Coal Sector R&D",
+        title: "CodeSnap - Share Code Instantly",
         description:
-            "Track and manage R&D projects efficiently in the coal sector with real-time updates, secure document handling, and automated notifications.",
-        url: "https://coal-track.vercel.app",
+            "Share code snippets quickly and easily with CodeSnap. Create and view code snippets with a single link.",
+        url: "https://codesnap-pro.vercel.app/",
         type: "website",
         images: [
             {
                 url: "/OG.png",
                 width: 2400,
                 height: 1260,
-                alt: "CoalTrack Project Monitoring",
+                alt: "CodeSnap - Share Code Instantly",
             },
         ],
     },
     twitter: {
         card: "summary_large_image",
-        title: "CoalTrack - Project Monitoring for Coal Sector R&D",
+        title: "CodeSnap - Share Code Instantly",
         description:
-            "Real-time project updates, document handling, and alerts for coal sector R&D.",
+            "Easily share code snippets with CodeSnap. Create, share, and view code with a simple link.",
         images: ["/OG.png"],
     },
 };
