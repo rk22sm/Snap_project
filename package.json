@@ -1,15 +1,15 @@
 {
-    "name": "next-app-template",
+    "name": "coal-track",
     "version": "0.0.1",
     "private": true,
     "scripts": {
         "dev": "next dev --turbo",
         "build": "next build",
         "start": "next start",
-        "lint": "eslint . --ext .ts,.tsx -c .eslintrc.json --fix",
-        "format": "prettier --write --ignore-path .gitignore ."
+        "lint": "eslint . --ext .ts,.tsx -c .eslintrc.json --fix"
     },
     "dependencies": {
+        "@hookform/resolvers": "^3.9.0",
         "@nextui-org/button": "2.0.38",
         "@nextui-org/code": "2.0.33",
         "@nextui-org/input": "2.2.5",
@@ -24,15 +24,20 @@
         "@prisma/client": "^5.20.0",
         "@react-aria/ssr": "3.9.4",
         "@react-aria/visually-hidden": "3.8.12",
+        "bcrypt": "^5.1.1",
         "clsx": "2.1.1",
         "framer-motion": "~11.1.1",
         "intl-messageformat": "^10.5.0",
         "next": "14.2.4",
         "next-themes": "^0.2.1",
         "react": "18.3.1",
-        "react-dom": "18.3.1"
+        "react-dom": "18.3.1",
+        "react-hook-form": "^7.53.0",
+        "sonner": "^1.5.0",
+        "zod": "^3.23.8"
     },
     "devDependencies": {
+        "@types/bcrypt": "^5.0.2",
         "@types/node": "20.5.7",
         "@types/react": "18.3.3",
         "@types/react-dom": "18.3.0",

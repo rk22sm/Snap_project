@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import React from "react";
 import { Inter } from "next/font/google";
+import { Toaster } from "sonner";
 
 import { Providers } from "./providers";
 
@@ -58,10 +59,14 @@ export default function RootLayout({
         <html lang="en">
             <body className={inter.className}>
                 <Providers
-                    themeProps={{ attribute: "class", defaultTheme: "dark" }}
+                    themeProps={{
+                        attribute: "class",
+                        defaultTheme: "dark",
+                    }}
                 >
                     <div className="relative min-h-svh">{children}</div>
                 </Providers>
+                <Toaster richColors={true} />
             </body>
         </html>
     );
