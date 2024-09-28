@@ -66,14 +66,19 @@ const SignUpForm = () => {
 
             if (response.ok) {
                 router.push("/sign-in");
-                toast.success("Signed up successfully.");
+                toast.success("Success!", {
+                    description: "Signed up successfully.",
+                });
             } else {
-                toast.error("An error occurred. Please try again.");
+                toast.error("Sign Up Failed", {
+                    description: "An error occurred. Please try again.",
+                });
             }
         } catch (error) {
-            toast.error(
-                "An unexpected error occurred. Please try again later.",
-            );
+            toast.error("Server Error", {
+                description:
+                    "An unexpected error occurred. Please try again later.",
+            });
         } finally {
             setIsLoading(false);
         }
