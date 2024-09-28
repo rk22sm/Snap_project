@@ -63,7 +63,7 @@ export default function RootLayout({
                 <Providers
                     themeProps={{
                         attribute: "class",
-                        defaultTheme: "dark",
+                        defaultTheme: "light",
                     }}
                 >
                     <div className="relative min-h-svh">{children}</div>

@@ -4,7 +4,6 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Input } from "@nextui-org/input";
-import { Link } from "@nextui-org/link";
 import { Button } from "@nextui-org/button";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
@@ -19,6 +18,7 @@ import { signIn } from "next-auth/react";
 import Image from "next/image";
 
 import { Google } from "@/components/icons";
+import AccessibleLink from "@/components/ui/AccessibleLink";
 
 const FormSchema = z.object({
     email: z.string().min(1, "Email is required").email("Invalid email"),
@@ -80,7 +80,7 @@ const SignInForm = () => {
                 <h1 className="text-xl font-bold">Sign in to CodeSnap</h1>
                 <p className="opacity-70">
                     Don&lsquo;t have an account,&nbsp;
-                    <Link href="/sign-up">Sign up</Link>.
+                    <AccessibleLink href="/sign-up">Sign up</AccessibleLink>.
                 </p>
             </div>
             <form
@@ -131,7 +131,7 @@ const SignInForm = () => {
                     {!isLoading && (
                         <>
                             Continue
-                            <ArrowRightIcon />
+                            <ArrowRightIcon strokeWidth={2} />
                         </>
                     )}
                 </Button>
@@ -149,13 +149,13 @@ const SignInForm = () => {
                 </Button>
                 <p className="text-center text-sm opacity-80">
                     {"By signing in, you agree to our "}
-                    <Link className="text-sm font-semibold" href="/sign-in">
+                    <AccessibleLink href="/sign-in" size="sm">
                         terms of service
-                    </Link>
+                    </AccessibleLink>
                     {", and "}
-                    <Link className="text-sm font-semibold" href="/sign-in">
+                    <AccessibleLink href="/sign-in" size="sm">
                         privacy policy
-                    </Link>
+                    </AccessibleLink>
                 </p>
             </form>
         </div>

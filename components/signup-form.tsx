@@ -4,7 +4,6 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Input } from "@nextui-org/input";
-import { Link } from "@nextui-org/link";
 import { Button } from "@nextui-org/button";
 import { useRouter } from "next/navigation";
 import React from "react";
@@ -14,6 +13,8 @@ import { toast } from "sonner";
 import Image from "next/image";
 
 import { Google } from "./icons";
+
+import AccessibleLink from "@/components/ui/AccessibleLink";
 
 const FormSchema = z
     .object({
@@ -91,7 +92,7 @@ const SignUpForm = () => {
                 <h1 className="text-xl font-bold">Create a CodeSnap account</h1>
                 <p className="opacity-70">
                     Already have an account?&nbsp;
-                    <Link href="/sign-in">Sign in</Link>.
+                    <AccessibleLink href="/sign-in">Sign in</AccessibleLink>.
                 </p>
             </div>
             <form
@@ -189,17 +190,17 @@ const SignUpForm = () => {
                 </Button>
                 <p className="text-center text-sm opacity-80">
                     {"By signing up, you agree to our "}
-                    <Link className="text-sm font-semibold" href="/sign-in">
+                    <AccessibleLink href="/sign-in" size="sm">
                         terms
-                    </Link>
+                    </AccessibleLink>
                     {", "}
-                    <Link className="text-sm font-semibold" href="/sign-in">
+                    <AccessibleLink href="/sign-in" size="sm">
                         acceptable use
-                    </Link>
+                    </AccessibleLink>
                     {", and "}
-                    <Link className="text-sm font-semibold" href="/sign-in">
+                    <AccessibleLink href="/sign-in" size="sm">
                         privacy policy
-                    </Link>
+                    </AccessibleLink>
                 </p>
             </form>
         </div>
