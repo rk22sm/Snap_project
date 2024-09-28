@@ -27,7 +27,7 @@ export async function POST(req: Request) {
         // run if email already exists
         if (existingUserByEmail) {
             return NextResponse.json(
-                { user: null, message: "UserSession already exists" },
+                { user: null, message: "User already exists" },
                 { status: 409 },
             );
         }
@@ -50,7 +50,7 @@ export async function POST(req: Request) {
         return NextResponse.json(
             {
                 user: userWithoutPassword,
-                message: "UserSession Created successfully",
+                message: "User Created successfully",
             },
             { status: 201 },
         );
