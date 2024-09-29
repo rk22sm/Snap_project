@@ -98,7 +98,6 @@ const SignInForm = () => {
                     label="Email"
                     placeholder="mail@example.com"
                     required={false}
-                    type="email"
                     {...form.register("email")}
                     errorMessage={form.formState.errors.email?.message}
                     isInvalid={!!form.formState.errors.email}
