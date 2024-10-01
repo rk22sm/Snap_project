@@ -2,6 +2,7 @@ import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { compare } from "bcrypt";
+import GoogleProvider from "next-auth/providers/google";
 
 import { db } from "@/lib/db";
 
@@ -59,6 +60,11 @@ export const authOptions: NextAuthOptions = {
                     email: existingUser.email,
                 };
             },
+        }),
+        GoogleProvider({
+            clientId: process.env.GOOGLE_ID as string,
+            clientSecret: process.env.GOOGLE_SECRET as string,
+            allowDangerousEmailAccountLinking: true,
         }),
     ],
     callbacks: {
