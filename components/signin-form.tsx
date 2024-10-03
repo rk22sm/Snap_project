@@ -6,15 +6,11 @@ import { useForm } from "react-hook-form";
 import { Input } from "@nextui-org/input";
 import { Button } from "@nextui-org/button";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
-import {
-    ArrowRightIcon,
-    EyeFilledIcon,
-    EyeSlashFilledIcon,
-} from "@nextui-org/shared-icons";
+import React, { useState, useEffect } from "react";
+import { EyeFilledIcon, EyeSlashFilledIcon } from "@nextui-org/shared-icons";
 import { Divider } from "@nextui-org/divider";
 import { toast } from "sonner";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react"; // Import useSession
 import Image from "next/image";
 
 import { Google } from "@/components/icons";
@@ -30,10 +26,20 @@ const FormSchema = z.object({
 
 const SignInForm = () => {
     const router = useRouter();
-    const [isVisible, setIsVisible] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
+    const { data: session } = useSession(); // Use useSession to get the session
+    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+    const [isCredentialSignInLoading, setIsCredentialSignInLoading] =
+        useState(false);
+    const [isGoogleSignInLoading, setIsGoogleSignInLoading] = useState(false);
 
-    const toggleVisibility = () => setIsVisible(!isVisible);
+    // Check if there's an active session and redirect
+    useEffect(() => {
+        if (session) {
+            router.push("/admin");
+        }
+    }, [session, router]);
+
+    const toggleVisibility = () => setIsPasswordVisible(!isPasswordVisible);
 
     const form = useForm<z.infer<typeof FormSchema>>({
         resolver: zodResolver(FormSchema),
@@ -44,7 +50,7 @@ const SignInForm = () => {
     });
 
     const onSubmit = async (values: z.infer<typeof FormSchema>) => {
-        setIsLoading(true);
+        setIsCredentialSignInLoading(true);
         try {
             const signInData = await signIn("credentials", {
                 redirect: false,
@@ -69,9 +75,28 @@ const SignInForm = () => {
                     "An unexpected error occurred. Please try again later.",
             });
         } finally {
-            setIsLoading(false);
+            setIsCredentialSignInLoading(false);
         }
     };
+
+    const signInWithGoogleOnClickHandler = async () => {
+        setIsGoogleSignInLoading(true);
+        try {
+            await signIn("google", {
+                redirect: false,
+                callbackUrl: "/admin",
+            });
+        } catch (error) {
+            toast.error("Server Error", {
+                description:
+                    "An unexpected error occurred. Please try again later.",
+            });
+        } finally {
+            setIsGoogleSignInLoading(false);
+        }
+    };
+
+    const isLoading = isCredentialSignInLoading || isGoogleSignInLoading;
 
     return (
         <div className="m-auto w-full max-w-lg">
@@ -110,7 +135,7 @@ const SignInForm = () => {
                             type="button"
                             onClick={toggleVisibility}
                         >
-                            {isVisible ? (
+                            {isPasswordVisible ? (
                                 <EyeSlashFilledIcon className="pointer-events-none text-2xl text-default-400" />
                             ) : (
                                 <EyeFilledIcon className="pointer-events-none text-2xl text-default-400" />
@@ -122,7 +147,7 @@ const SignInForm = () => {
                     label="Password"
                     placeholder="Enter your password"
                     required={false}
-                    type={isVisible ? "text" : "password"}
+                    type={isPasswordVisible ? "text" : "password"}
                     {...form.register("password")}
                     errorMessage={form.formState.errors.password?.message}
                 />
@@ -130,15 +155,10 @@ const SignInForm = () => {
                     className="font-semibold"
                     color="primary"
                     isDisabled={isLoading}
-                    isLoading={isLoading}
+                    isLoading={isCredentialSignInLoading}
                     type="submit"
                 >
-                    {!isLoading && (
-                        <>
-                            Continue
-                            <ArrowRightIcon strokeWidth={2} />
-                        </>
-                    )}
+                    {!isCredentialSignInLoading && <>Continue</>}
                 </Button>
                 <div className="grid grid-cols-[1fr,_auto,_1fr] items-center gap-2">
                     <Divider />
@@ -147,10 +167,18 @@ const SignInForm = () => {
                 </div>
                 <Button
                     className="font-semibold"
-                    startContent={<Google size={20} />}
+                    isDisabled={isLoading}
+                    isLoading={isGoogleSignInLoading}
+                    type="button"
                     variant="ghost"
+                    onClick={signInWithGoogleOnClickHandler}
                 >
-                    Sign in with Google
+                    {!isGoogleSignInLoading && (
+                        <>
+                            <Google size={20} />
+                            Sign in with Google
+                        </>
+                    )}
                 </Button>
                 <p className="text-center text-sm opacity-80">
                     {"By signing in, you agree to our "}

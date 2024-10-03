@@ -11,6 +11,7 @@ import { EyeFilledIcon, EyeSlashFilledIcon } from "@nextui-org/shared-icons";
 import { Divider } from "@nextui-org/divider";
 import { toast } from "sonner";
 import Image from "next/image";
+import { signIn } from "next-auth/react";
 
 import { Google } from "./icons";
 
@@ -190,6 +191,12 @@ const SignUpForm = () => {
                     className="font-semibold"
                     startContent={<Google size={20} />}
                     variant="ghost"
+                    onClick={() =>
+                        signIn("google", {
+                            redirect: false,
+                            callbackUrl: "/admin",
+                        })
+                    }
                 >
                     Sign up with Google
                 </Button>
