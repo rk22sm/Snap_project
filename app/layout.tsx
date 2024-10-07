@@ -8,6 +8,8 @@ import { Analytics } from "@vercel/analytics/react";
 
 import { Providers } from "./providers";
 
+import TopLoader from "@/components/top-loader";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -73,6 +75,8 @@ export default function RootLayout({
                 <Analytics />
                 {/* Vercel Speed Insights for Page Speed Analysis */}
                 <SpeedInsights />
+                {/* NextJs TopLoader for loading animation */}
+                <TopLoader />
             </body>
         </html>
     );
