@@ -10,7 +10,7 @@ import React, { useState, useEffect } from "react";
 import { EyeFilledIcon, EyeSlashFilledIcon } from "@nextui-org/shared-icons";
 import { Divider } from "@nextui-org/divider";
 import { toast } from "sonner";
-import { signIn, useSession } from "next-auth/react"; // Import useSession
+import { signIn, useSession } from "next-auth/react";
 import Image from "next/image";
 
 import { Google } from "@/components/icons";
