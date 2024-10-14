@@ -152,19 +152,13 @@ function Page() {
                     autoPlay
                     loop
                     muted
-                    className="absolute left-1/2 m-auto max-h-[1000px] w-[40vw] w-full -translate-x-1/2"
+                    className="absolute left-1/2 m-auto max-h-[1000px] w-[40vw] w-full -translate-x-1/2 animate-slide-up"
                     src="/earth-rotating.mp4"
                 />
             </aside>
             <main className="m-auto w-full max-w-lg p-4 lg:p-6">
-                <Image
-                    className="mb-4"
-                    height={50}
-                    radius="none"
-                    src="/logo.png"
-                    width={50}
-                />
-                <div className="mb-4 grid gap-2">
+                <Image height={50} radius="none" src="/logo.png" width={50} />
+                <div className="my-4 grid gap-2">
                     <h1 className="text-xl font-bold">Sign in to CodeSnap</h1>
                     <p className="opacity-70">
                         Don&lsquo;t have an account,&nbsp;

@@ -13,6 +13,21 @@ module.exports = {
                 sans: ["var(--font-sans)"],
                 mono: ["var(--font-mono)"],
             },
+            animation: {
+                "slide-up": "slide-up 1s ease-out forwards",
+            },
+            keyframes: {
+                "slide-up": {
+                    "0%": {
+                        transform: "translate(-50%, 100%)",
+                        opacity: 0,
+                    },
+                    "100%": {
+                        transform: "translate(-50%, 0)",
+                        opacity: 1,
+                    },
+                },
+            },
         },
     },
     darkMode: "class",
