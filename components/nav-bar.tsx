@@ -12,16 +12,15 @@ import {
 import { User } from "@nextui-org/user";
 import { Avatar } from "@nextui-org/avatar";
 import { signOut, useSession } from "next-auth/react";
-import { useTheme as useNextTheme } from "next-themes";
-import { useEffect } from "react";
 import { Home, LogOut, PlusIcon } from "lucide-react";
+
+import { ThemeSwitch } from "./theme-switch";
 
 import BrandLogo from "@/components/logo/brand-logo";
 import Logo from "@/components/logo/logo";
 
 export default function NavBar() {
     const { data: session } = useSession();
-    const { setTheme, theme } = useNextTheme();
 
     const handleSignOut = () => {
         signOut({
@@ -29,21 +28,6 @@ export default function NavBar() {
             callbackUrl: `${window.location.origin}/sign-in`,
         });
     };
-
-    const handleThemeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        const selectedTheme = e.target.value.toLowerCase();
-
-        setTheme(selectedTheme);
-        localStorage.setItem("theme", selectedTheme);
-    };
-
-    useEffect(() => {
-        const storedTheme = localStorage.getItem("theme");
-
-        if (storedTheme) {
-            setTheme(storedTheme);
-        }
-    }, [setTheme]);
 
     return (
         <Navbar isBordered maxWidth="2xl">
@@ -109,18 +93,7 @@ export default function NavBar() {
                                 key="theme"
                                 isReadOnly
                                 className="cursor-default"
-                                endContent={
-                                    <select
-                                        className="z-10 w-16 rounded-md border-small border-default-300 bg-transparent py-0.5 text-tiny text-default-500 outline-none group-data-[hover=true]:border-default-500 dark:border-default-200"
-                                        id="theme"
-                                        name="theme"
-                                        value={theme}
-                                        onChange={handleThemeChange}
-                                    >
-                                        <option value="light">Light</option>
-                                        <option value="dark">Dark</option>
-                                    </select>
-                                }
+                                endContent={<ThemeSwitch />}
                             >
                                 Theme
                             </DropdownItem>
