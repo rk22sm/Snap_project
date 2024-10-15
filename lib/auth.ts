@@ -65,6 +65,9 @@ export const authOptions: NextAuthOptions = {
             clientId: process.env.GOOGLE_ID as string,
             clientSecret: process.env.GOOGLE_SECRET as string,
             allowDangerousEmailAccountLinking: true,
+            httpOptions: {
+                timeout: 40000,
+            },
         }),
     ],
     callbacks: {
