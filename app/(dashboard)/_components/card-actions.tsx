@@ -6,45 +6,44 @@ import {
     DropdownMenu,
     DropdownItem,
 } from "@nextui-org/dropdown";
-import { EllipsisVertical } from "lucide-react";
-
-import { EditDocumentIcon } from "@/components/icons/icons";
-import { DeleteDocumentIcon } from "@/components/icons/icons";
-import { CopyDocumentIcon } from "@/components/icons/icons";
+import { cn } from "@nextui-org/theme";
+import { Clipboard, Edit, EllipsisVertical, Eye, Trash } from "lucide-react";
 
 export default function CardActions() {
-    const iconClasses =
-        "text-xl text-default-500 pointer-events-none flex-shrink-0";
+    const iconClasses = "w-4 text-default-500 flex-shrink-0";
 
     return (
-        <Dropdown placement="bottom-start">
+        <Dropdown placement="bottom-end">
             <DropdownTrigger>
                 <EllipsisVertical height={18} width={18} />
             </DropdownTrigger>
             <DropdownMenu aria-label="Card Dropdown menu">
                 <DropdownItem
                     key="copy"
-                    startContent={<CopyDocumentIcon className={iconClasses} />}
+                    startContent={<Clipboard className={iconClasses} />}
                 >
                     Copy link
                 </DropdownItem>
                 <DropdownItem
+                    key="view"
+                    startContent={<Eye className={iconClasses} />}
+                >
+                    View snippet
+                </DropdownItem>
+                <DropdownItem
                     key="edit"
-                    startContent={<EditDocumentIcon className={iconClasses} />}
+                    startContent={<Edit className={iconClasses} />}
                 >
                     Edit snippet
                 </DropdownItem>
                 <DropdownItem
                     key="delete"
-                    className="text-danger"
-                    color="danger"
+                    className="text-red-500"
                     startContent={
-                        <DeleteDocumentIcon
-                            className={`${iconClasses} text-danger`}
-                        />
+                        <Trash className={cn(iconClasses, "text-red-500")} />
                     }
                 >
-                    Delete file
+                    Delete snippet
                 </DropdownItem>
             </DropdownMenu>
         </Dropdown>

@@ -1,29 +1,41 @@
-import PropTypes from "prop-types";
 import { Card, CardHeader, CardFooter } from "@nextui-org/card";
 import { Image } from "@nextui-org/image";
 import { Divider } from "@nextui-org/divider";
+
 import CardActions from "@/app/(dashboard)/_components/card-actions";
+
+interface SnippetInfoCardProps {
+    title: string;
+    language: string;
+    createdAt: string;
+}
 
 export default function SnippetInfoCard({
     title,
     language,
-    imageUrl,
-    fallbackImage,
     createdAt,
-}) {
+}: SnippetInfoCardProps) {
     return (
-        <Card isHoverable isPressable className="w-[400px]">
+        <Card
+            isHoverable
+            isPressable
+            className="w-[400px] border border-transparent hover:border-foreground-400"
+        >
             <CardHeader className="flex justify-between gap-3">
                 <div className="flex items-center gap-3">
                     <Image
-                        fallbackSrc={fallbackImage}
                         height={45}
                         radius="sm"
-                        src={imageUrl}
+                        src={`https://skillicons.dev/icons?i=${language.toLowerCase()}`}
                         width={45}
                     />
                     <div className="flex flex-col text-left">
-                        <p className="text-md">{title}</p>
+                        <p
+                            className="text-md max-w-60 overflow-hidden text-ellipsis text-nowrap"
+                            title={title}
+                        >
+                            {title}
+                        </p>
                         <p className="text-small text-default-500">
                             {language}
                         </p>

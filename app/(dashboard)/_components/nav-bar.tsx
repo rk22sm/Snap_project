@@ -28,6 +28,9 @@ export default function NavBar() {
         });
     };
 
+    const iconClasses =
+        "w-4 text-default-500 flex-shrink-0 group-hover:text-white";
+
     return (
         <Navbar isBordered maxWidth="2xl">
             <NavbarBrand>
@@ -78,9 +81,14 @@ export default function NavBar() {
                             <DropdownItem key="settings">Settings</DropdownItem>
                             <DropdownItem
                                 key="new_project"
-                                endContent={<PlusIcon size={16} />}
+                                endContent={
+                                    <PlusIcon
+                                        className={iconClasses}
+                                        size={16}
+                                    />
+                                }
                             >
-                                New Project
+                                New Snippet
                             </DropdownItem>
                         </DropdownSection>
 
@@ -92,7 +100,9 @@ export default function NavBar() {
                                 key="theme"
                                 isReadOnly
                                 className="cursor-default"
-                                endContent={<ThemeSwitch />}
+                                endContent={
+                                    <ThemeSwitch className={iconClasses} />
+                                }
                             >
                                 Theme
                             </DropdownItem>
@@ -101,13 +111,17 @@ export default function NavBar() {
                         <DropdownSection showDivider aria-label="Home & Logout">
                             <DropdownItem
                                 key="home"
-                                endContent={<Home size={16} />}
+                                endContent={
+                                    <Home className={iconClasses} size={16} />
+                                }
                             >
                                 Home Page
                             </DropdownItem>
                             <DropdownItem
                                 key="logout"
-                                endContent={<LogOut size={16} />}
+                                endContent={
+                                    <LogOut className={iconClasses} size={16} />
+                                }
                                 onClick={handleSignOut}
                             >
                                 Log Out
