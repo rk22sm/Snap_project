@@ -27,7 +27,7 @@ export default function SearchFilter() {
     const isMobile = useMediaQuery("(max-width: 640px)");
 
     return (
-        <div className="m-auto flex max-w-screen-2xl justify-between gap-4 p-6">
+        <div className="m-auto flex max-w-screen-xl justify-between gap-4 p-6">
             <Input
                 fullWidth
                 isClearable

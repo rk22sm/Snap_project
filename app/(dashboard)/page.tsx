@@ -140,8 +140,8 @@ export default async function Page() {
             <div>
                 <NavBar />
                 <SearchFilter />
-                <main className="m-auto mb-8 p-4">
-                    <div className="container m-auto flex flex-wrap justify-center gap-4 lg:gap-6 xl:gap-8">
+                <main className="m-auto mb-8">
+                    <div className="m-auto grid max-w-screen-xl grid-cols-[repeat(auto-fill,minmax(330px,1fr))] gap-4 px-6 lg:gap-6 xl:gap-8">
                         {snippetData.map((snippet, index) => (
                             <SnippetInfoCard
                                 key={index}

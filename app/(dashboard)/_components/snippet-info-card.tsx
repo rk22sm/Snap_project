@@ -19,7 +19,7 @@ export default function SnippetInfoCard({
         <Card
             isHoverable
             isPressable
-            className="w-[400px] border border-transparent hover:border-foreground-400"
+            className="border border-transparent hover:border-foreground-400"
         >
             <CardHeader className="flex justify-between gap-3">
                 <div className="flex items-center gap-3">
