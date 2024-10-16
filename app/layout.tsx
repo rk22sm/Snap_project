@@ -8,7 +8,7 @@ import { Analytics } from "@vercel/analytics/react";
 
 import { Providers } from "./providers";
 
-import TopLoader from "@/components/top-loader";
+import TopLoader from "@/components/ui/top-loader";
 
 const inter = Inter({ subsets: ["latin"] });
 

@@ -14,8 +14,7 @@ import { Avatar } from "@nextui-org/avatar";
 import { signOut, useSession } from "next-auth/react";
 import { Home, LogOut, PlusIcon } from "lucide-react";
 
-import { ThemeSwitch } from "./theme-switch";
-
+import { ThemeSwitch } from "@/components/ui/theme-switch";
 import BrandLogo from "@/components/logo/brand-logo";
 import Logo from "@/components/logo/logo";
 
@@ -103,7 +102,6 @@ export default function NavBar() {
                             <DropdownItem
                                 key="home"
                                 endContent={<Home size={16} />}
-                                onClick={handleSignOut}
                             >
                                 Home Page
                             </DropdownItem>

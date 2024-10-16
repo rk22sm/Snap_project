@@ -13,7 +13,7 @@ import { useState } from "react";
 import { EyeFilledIcon, EyeSlashFilledIcon } from "@nextui-org/shared-icons";
 
 import AccessibleLink from "@/components/ui/AccessibleLink";
-import { Google } from "@/components/icons";
+import { Google } from "@/components/icons/icons";
 
 const SignInForm = () => {
     const router = useRouter();
@@ -46,7 +46,7 @@ const SignInForm = () => {
                 toast.success("Success!", {
                     description: "Signed in successfully.",
                 });
-                router.push("/admin");
+                router.push("/");
             } else {
                 toast.error("Authentication Failed", {
                     description: "Invalid credentials. Please try again.",
