@@ -40,10 +40,6 @@ module.exports = {
                     large: "8px",
                 },
             },
-            themes: {
-                light: {},
-                dark: {},
-            },
         }),
     ],
 };

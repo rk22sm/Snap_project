@@ -12,16 +12,14 @@ import {
 import { User } from "@nextui-org/user";
 import { Avatar } from "@nextui-org/avatar";
 import { signOut, useSession } from "next-auth/react";
-import { useTheme as useNextTheme } from "next-themes";
-import { useEffect } from "react";
 import { Home, LogOut, PlusIcon } from "lucide-react";
 
+import { ThemeSwitch } from "@/components/ui/theme-switch";
 import BrandLogo from "@/components/logo/brand-logo";
 import Logo from "@/components/logo/logo";
 
 export default function NavBar() {
     const { data: session } = useSession();
-    const { setTheme, theme } = useNextTheme();
 
     const handleSignOut = () => {
         signOut({
@@ -30,20 +28,8 @@ export default function NavBar() {
         });
     };
 
-    const handleThemeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        const selectedTheme = e.target.value.toLowerCase();
-
-        setTheme(selectedTheme);
-        localStorage.setItem("theme", selectedTheme);
-    };
-
-    useEffect(() => {
-        const storedTheme = localStorage.getItem("theme");
-
-        if (storedTheme) {
-            setTheme(storedTheme);
-        }
-    }, [setTheme]);
+    const iconClasses =
+        "w-4 text-default-500 flex-shrink-0 group-hover:text-white";
 
     return (
         <Navbar isBordered maxWidth="2xl">
@@ -95,9 +81,14 @@ export default function NavBar() {
                             <DropdownItem key="settings">Settings</DropdownItem>
                             <DropdownItem
                                 key="new_project"
-                                endContent={<PlusIcon size={16} />}
+                                endContent={
+                                    <PlusIcon
+                                        className={iconClasses}
+                                        size={16}
+                                    />
+                                }
                             >
-                                New Project
+                                New Snippet
                             </DropdownItem>
                         </DropdownSection>
 
@@ -110,16 +101,7 @@ export default function NavBar() {
                                 isReadOnly
                                 className="cursor-default"
                                 endContent={
-                                    <select
-                                        className="z-10 w-16 rounded-md border-small border-default-300 bg-transparent py-0.5 text-tiny text-default-500 outline-none group-data-[hover=true]:border-default-500 dark:border-default-200"
-                                        id="theme"
-                                        name="theme"
-                                        value={theme}
-                                        onChange={handleThemeChange}
-                                    >
-                                        <option value="light">Light</option>
-                                        <option value="dark">Dark</option>
-                                    </select>
+                                    <ThemeSwitch className={iconClasses} />
                                 }
                             >
                                 Theme
@@ -129,14 +111,17 @@ export default function NavBar() {
                         <DropdownSection showDivider aria-label="Home & Logout">
                             <DropdownItem
                                 key="home"
-                                endContent={<Home size={16} />}
-                                onClick={handleSignOut}
+                                endContent={
+                                    <Home className={iconClasses} size={16} />
+                                }
                             >
                                 Home Page
                             </DropdownItem>
                             <DropdownItem
                                 key="logout"
-                                endContent={<LogOut size={16} />}
+                                endContent={
+                                    <LogOut className={iconClasses} size={16} />
+                                }
                                 onClick={handleSignOut}
                             >
                                 Log Out

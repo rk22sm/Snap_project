@@ -4,7 +4,7 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
 import AccessibleLink from "@/components/ui/AccessibleLink";
-import SignInForm from "@/components/signin-form";
+import SignInForm from "@/app/(auth)/sign-in/_components/signin-form";
 import { authOptions } from "@/lib/auth";
 import BrandLogo from "@/components/logo/brand-logo";
 import Logo from "@/components/logo/logo";

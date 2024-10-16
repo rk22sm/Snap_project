@@ -13,6 +13,7 @@
         "@next-auth/prisma-adapter": "^1.0.7",
         "@nextui-org/avatar": "^2.0.33",
         "@nextui-org/button": "2.0.38",
+        "@nextui-org/card": "^2.0.34",
         "@nextui-org/code": "2.0.33",
         "@nextui-org/dropdown": "^2.1.31",
         "@nextui-org/image": "^2.0.32",
