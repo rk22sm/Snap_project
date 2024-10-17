@@ -12,7 +12,7 @@ import { Button } from "@nextui-org/button";
 import { useState, useMemo } from "react";
 
 import useMediaQuery from "@/hooks/media-query";
-import { SearchIcon } from "@/components/icons/icons";
+import { SearchIcon } from "@/components/icon/icons";
 
 export default function SearchFilter() {
     const [selectedKeys, setSelectedKeys] = useState<Set<string>>(

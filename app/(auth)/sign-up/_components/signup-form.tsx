@@ -13,7 +13,7 @@ import { useState } from "react";
 import { EyeFilledIcon, EyeSlashFilledIcon } from "@nextui-org/shared-icons";
 
 import AccessibleLink from "@/components/ui/AccessibleLink";
-import { Google } from "@/components/icons/icons";
+import { Google } from "@/components/icon/icons";
 
 const SignUpForm = () => {
     const router = useRouter();
@@ -51,19 +51,14 @@ const SignUpForm = () => {
 
             if (response.ok) {
                 router.push("/sign-in");
-                toast.success("Success!", {
-                    description: "Signed up successfully.",
-                });
+                toast.success("Signed up successfully.");
             } else {
-                toast.error("Sign Up Failed", {
-                    description: "An error occurred. Please try again.",
-                });
+                toast.error("An error occurred. Please try again.");
             }
         } catch (error) {
-            toast.error("Server Error", {
-                description:
-                    "An unexpected error occurred. Please try again later.",
-            });
+            toast.error(
+                "An unexpected error occurred. Please try again later.",
+            );
         }
     };
 
@@ -74,10 +69,9 @@ const SignUpForm = () => {
                 callbackUrl: "/",
             });
         } catch (error) {
-            toast.error("Server Error", {
-                description:
-                    "An unexpected error occurred. Please try again later.",
-            });
+            toast.error(
+                "An unexpected error occurred. Please try again later.",
+            );
         }
     };
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);

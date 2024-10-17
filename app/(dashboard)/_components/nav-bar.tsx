@@ -29,7 +29,7 @@ export default function NavBar() {
     };
 
     const iconClasses =
-        "w-4 text-default-500 flex-shrink-0 group-hover:text-white";
+        "w-4 text-default-500 flex-shrink-0 group-hover:text-foreground";
 
     return (
         <Navbar isBordered maxWidth="2xl">
@@ -131,7 +131,7 @@ export default function NavBar() {
                         <DropdownSection aria-label="Upgrade">
                             <DropdownItem
                                 key="upgrade_to_pro"
-                                className="bg-foreground text-center text-background"
+                                className="bg-foreground text-center text-background data-[hover]:bg-foreground/80 data-[hover]:text-background"
                             >
                                 Upgrade to Pro
                             </DropdownItem>
