@@ -14,10 +14,8 @@ export default function CardActions() {
 
     return (
         <Dropdown placement="bottom-end">
-            <DropdownTrigger>
-                <div className="flex h-8 w-8 items-center justify-center rounded transition hover:bg-foreground/10">
-                    <Ellipsis height={16} width={16} />
-                </div>
+            <DropdownTrigger className="flex h-8 w-8 items-center justify-center rounded p-2 transition hover:bg-foreground/10">
+                <Ellipsis height={16} width={16} />
             </DropdownTrigger>
             <DropdownMenu
                 aria-label="Snippet Card Dropdown menu"
