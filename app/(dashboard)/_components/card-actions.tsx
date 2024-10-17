@@ -1,6 +1,5 @@
 "use client";
 
-import { Button } from "@nextui-org/button";
 import {
     Dropdown,
     DropdownTrigger,
@@ -16,9 +15,9 @@ export default function CardActions() {
     return (
         <Dropdown placement="bottom-end">
             <DropdownTrigger>
-                <Button isIconOnly size="sm" variant="light">
+                <div className="flex h-8 w-8 items-center justify-center rounded transition hover:bg-foreground/10">
                     <Ellipsis height={16} width={16} />
-                </Button>
+                </div>
             </DropdownTrigger>
             <DropdownMenu
                 aria-label="Snippet Card Dropdown menu"
