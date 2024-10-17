@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown, PlusIcon } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { Input } from "@nextui-org/input";
 import {
     Dropdown,
@@ -10,6 +10,8 @@ import {
 } from "@nextui-org/dropdown";
 import { Button } from "@nextui-org/button";
 import { useState, useMemo } from "react";
+
+import CreateSnippet from "./create-snippet";
 
 import useMediaQuery from "@/hooks/media-query";
 import { SearchIcon } from "@/components/icon/icons";
@@ -67,13 +69,7 @@ export default function SearchFilter() {
                         </DropdownItem>
                     </DropdownMenu>
                 </Dropdown>
-                <Button
-                    color="primary"
-                    endContent={<PlusIcon size={16} />}
-                    isIconOnly={isMobile}
-                >
-                    <span className="hidden sm:flex">Create Snippet</span>
-                </Button>
+                <CreateSnippet isMobile={isMobile} />
             </div>
         </div>
     );
