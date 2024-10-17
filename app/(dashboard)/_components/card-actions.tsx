@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@nextui-org/button";
 import {
     Dropdown,
     DropdownTrigger,
@@ -7,7 +8,7 @@ import {
     DropdownItem,
 } from "@nextui-org/dropdown";
 import { cn } from "@nextui-org/theme";
-import { Clipboard, Edit, EllipsisVertical, Eye, Trash } from "lucide-react";
+import { Clipboard, Edit, Ellipsis, Eye, Trash } from "lucide-react";
 
 export default function CardActions() {
     const iconClasses = "w-4 text-default-500 flex-shrink-0";
@@ -15,9 +16,14 @@ export default function CardActions() {
     return (
         <Dropdown placement="bottom-end">
             <DropdownTrigger>
-                <EllipsisVertical height={18} width={18} />
+                <Button isIconOnly size="sm" variant="light">
+                    <Ellipsis height={16} width={16} />
+                </Button>
             </DropdownTrigger>
-            <DropdownMenu aria-label="Card Dropdown menu">
+            <DropdownMenu
+                aria-label="Snippet Card Dropdown menu"
+                variant="flat"
+            >
                 <DropdownItem
                     key="copy"
                     startContent={<Clipboard className={iconClasses} />}
@@ -38,9 +44,9 @@ export default function CardActions() {
                 </DropdownItem>
                 <DropdownItem
                     key="delete"
-                    className="text-red-500"
+                    className="text-red-500 data-[hover]:text-red-500"
                     startContent={
-                        <Trash className={cn(iconClasses, "text-red-500")} />
+                        <Trash className={cn(iconClasses, "text-current")} />
                     }
                 >
                     Delete snippet

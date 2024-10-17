@@ -13,36 +13,36 @@ import TopLoader from "@/components/ui/top-loader";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: "CodeSnap - Share Code Instantly",
+    title: "CodeSnap - Create, Run & Share Code Instantly",
     description:
-        "CodeSnap is a simple platform for sharing code snippets quickly and easily. Create, share, and view code snippets with just a link.",
+        "CodeSnap is a simple platform for running and sharing code snippets quickly and easily. Create, share, and run code snippets with just a link.",
     keywords:
-        "CodeSnap, code sharing, snippets, instant code sharing, developers, programming, share code, code snippets, coding tools",
+        "CodeSnap, code sharing, code execution, snippets, instant code sharing, developers, programming, run code, share code, code snippets, coding tools",
     authors: {
         name: "Ranit Manik",
         url: "https://github.com/RanitManik",
     },
-    metadataBase: new URL("https://codesnap-pro.vercel.app/"),
+    metadataBase: new URL("https://codesnap.ranitmanik.live/"),
     openGraph: {
-        title: "CodeSnap - Share Code Instantly",
+        title: "CodeSnap - Create, Run & Share Code Instantly",
         description:
-            "Share code snippets quickly and easily with CodeSnap. Create and view code snippets with a single link.",
-        url: "https://codesnap-pro.vercel.app/",
+            "Create, Run and share code snippets quickly and easily with CodeSnap. Create and view code snippets with a single link.",
+        url: "https://codesnap.ranitmanik.live/",
         type: "website",
         images: [
             {
                 url: "/OG.png",
                 width: 2400,
                 height: 1260,
-                alt: "CodeSnap - Share Code Instantly",
+                alt: "CodeSnap - Create, Run & Share Code Instantly",
             },
         ],
     },
     twitter: {
         card: "summary_large_image",
-        title: "CodeSnap - Share Code Instantly",
+        title: "CodeSnap - Create, Run & Share Code Instantly",
         description:
-            "Easily share code snippets with CodeSnap. Create, share, and view code with a simple link.",
+            "Easily run and share code snippets with CodeSnap. Create, share, and run code with a simple link.",
         images: ["/OG.png"],
     },
 };
@@ -70,13 +70,14 @@ export default function RootLayout({
                 >
                     <div className="relative min-h-svh">{children}</div>
                 </Providers>
-                <Toaster richColors={true} />
                 {/* Vercel Analytics for Web Performance Monitoring */}
                 <Analytics />
                 {/* Vercel Speed Insights for Page Speed Analysis */}
                 <SpeedInsights />
                 {/* NextJs TopLoader for loading animation */}
                 <TopLoader />
+                {/* Toast notifications for user feedback */}
+                <Toaster />
             </body>
         </html>
     );

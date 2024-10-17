@@ -13,7 +13,7 @@ import { useState } from "react";
 import { EyeFilledIcon, EyeSlashFilledIcon } from "@nextui-org/shared-icons";
 
 import AccessibleLink from "@/components/ui/AccessibleLink";
-import { Google } from "@/components/icons/icons";
+import { Google } from "@/components/icon/icons";
 
 const SignInForm = () => {
     const router = useRouter();
@@ -43,20 +43,15 @@ const SignInForm = () => {
             });
 
             if (!signInData?.error) {
-                toast.success("Success!", {
-                    description: "Signed in successfully.",
-                });
+                toast.success("Signed in successfully.");
                 router.push("/");
             } else {
-                toast.error("Authentication Failed", {
-                    description: "Invalid credentials. Please try again.",
-                });
+                toast.error("Invalid credentials. Please try again.");
             }
         } catch (error) {
-            toast.error("Server Error", {
-                description:
-                    "An unexpected error occurred. Please try again later.",
-            });
+            toast.error(
+                "An unexpected error occurred. Please try again later.",
+            );
         }
     };
 
@@ -67,10 +62,9 @@ const SignInForm = () => {
                 callbackUrl: "/",
             });
         } catch (error) {
-            toast.error("Server Error", {
-                description:
-                    "An unexpected error occurred. Please try again later.",
-            });
+            toast.error(
+                "An unexpected error occurred. Please try again later.",
+            );
         }
     };
 
