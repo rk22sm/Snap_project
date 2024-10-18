@@ -13,8 +13,9 @@ import { Input } from "@nextui-org/input";
 import { RadioGroup } from "@nextui-org/radio";
 import { cn } from "@nextui-org/theme";
 
+import { CustomRadio } from "../../../components/ui/custom-radio";
+
 import LangSelector from "./lang-selecter";
-import { CustomRadio } from "./custom-radio";
 
 export default function CreateSnippet({ isMobile }: { isMobile: boolean }) {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -45,10 +46,12 @@ export default function CreateSnippet({ isMobile }: { isMobile: boolean }) {
                                     type="text"
                                 />
                                 <RadioGroup
+                                    isRequired
                                     classNames={{
                                         wrapper: cn("justify-between"),
                                         description: cn("text-foreground-500"),
                                     }}
+                                    defaultValue="public"
                                     description="Choose who can view your snippet. You can change this later."
                                     orientation="horizontal"
                                     size="sm"

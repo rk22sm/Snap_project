@@ -20,6 +20,7 @@ export default function LangSelector() {
                     endContent={language.version}
                     startContent={
                         <Avatar
+                            showFallback
                             alt={language.language}
                             className="h-6 w-6 rounded-none bg-transparent"
                             src={language.imgUrl}

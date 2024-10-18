@@ -2,7 +2,7 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
 import NavBar from "./_components/nav-bar";
-import SearchFilter from "./_components/search-filter";
+import SearchFilter from "./_components/control-panel";
 import SnippetInfoCard from "./_components/snippet-info-card";
 
 import { authOptions } from "@/lib/auth";
