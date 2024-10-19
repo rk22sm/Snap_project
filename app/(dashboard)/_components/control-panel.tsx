@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Search } from "lucide-react";
 import { Input } from "@nextui-org/input";
 import {
     Dropdown,
@@ -14,7 +14,6 @@ import { useState, useMemo } from "react";
 import CreateSnippet from "./create-snippet";
 
 import useMediaQuery from "@/hooks/media-query";
-import { SearchIcon } from "@/components/icon/icons";
 
 export default function SearchFilter() {
     const [selectedKeys, setSelectedKeys] = useState<Set<string>>(
@@ -34,7 +33,7 @@ export default function SearchFilter() {
                 fullWidth
                 isClearable
                 placeholder="Search by name..."
-                startContent={<SearchIcon />}
+                startContent={<Search className="h-4 w-4 opacity-50" />}
             />
             <div className="flex gap-3">
                 <Dropdown>
