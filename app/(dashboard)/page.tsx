@@ -2,10 +2,11 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
 import NavBar from "./_components/nav-bar";
-import SearchFilter from "./_components/search-filter";
+import SearchFilter from "./_components/control-panel";
 import SnippetInfoCard from "./_components/snippet-info-card";
 
 import { authOptions } from "@/lib/auth";
+import { CommandMenu } from "@/components/ui/command-menu";
 
 const snippetData = [
     {
@@ -140,8 +141,9 @@ export default async function Page() {
             <div>
                 <NavBar />
                 <SearchFilter />
+                <CommandMenu />
                 <main className="m-auto mb-8 max-w-screen-xl px-6">
-                    <h1 className="mb-4 text-lg md:text-xl">Snippets</h1>
+                    <h1 className="mb-4 text-lg font-medium">Snaps</h1>
                     <div className="m-auto grid grid-cols-[repeat(auto-fill,minmax(330px,1fr))] gap-4 lg:gap-6 xl:gap-8">
                         {snippetData.map((snippet, index) => (
                             <SnippetInfoCard

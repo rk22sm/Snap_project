@@ -14,7 +14,10 @@ export default function CardActions() {
 
     return (
         <Dropdown placement="bottom-end">
-            <DropdownTrigger className="flex h-8 w-8 items-center justify-center rounded p-2 transition hover:bg-foreground/10">
+            <DropdownTrigger
+                as="button"
+                className="flex h-8 w-8 items-center justify-center rounded p-2 transition hover:bg-foreground/10"
+            >
                 <Ellipsis height={16} width={16} />
             </DropdownTrigger>
             <DropdownMenu

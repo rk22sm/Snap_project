@@ -13,7 +13,7 @@ import { useState } from "react";
 import { EyeFilledIcon, EyeSlashFilledIcon } from "@nextui-org/shared-icons";
 
 import AccessibleLink from "@/components/ui/AccessibleLink";
-import { Google } from "@/components/icon/icons";
+import { Google } from "@/components/icon/google";
 
 const SignInForm = () => {
     const router = useRouter();

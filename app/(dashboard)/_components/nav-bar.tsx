@@ -93,8 +93,8 @@ export default function NavBar() {
                         </DropdownSection>
 
                         <DropdownSection showDivider aria-label="Preferences">
-                            <DropdownItem key="quick_search" shortcut="⌘K">
-                                Quick search
+                            <DropdownItem key="command_menu" shortcut="⌘K">
+                                Command Menu
                             </DropdownItem>
                             <DropdownItem
                                 key="theme"

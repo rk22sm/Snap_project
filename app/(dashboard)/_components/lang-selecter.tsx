@@ -1,7 +1,7 @@
 "use client";
 
-import { Avatar } from "@nextui-org/avatar";
 import { Autocomplete, AutocompleteItem } from "@nextui-org/autocomplete";
+import { Image } from "@nextui-org/image";
 
 import { languageOptions } from "@/config/languages";
 
@@ -19,7 +19,7 @@ export default function LangSelector() {
                     key={language.language}
                     endContent={language.version}
                     startContent={
-                        <Avatar
+                        <Image
                             alt={language.language}
                             className="h-6 w-6 rounded-none bg-transparent"
                             src={language.imgUrl}
