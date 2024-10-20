@@ -11,7 +11,7 @@ import {
 import { Button } from "@nextui-org/button";
 import { useState, useMemo } from "react";
 
-import CreateSnippet from "./create-snippet";
+import CreateSnap from "./create-snap";
 
 import useMediaQuery from "@/hooks/media-query";
 
@@ -68,7 +68,7 @@ export default function SearchFilter() {
                         </DropdownItem>
                     </DropdownMenu>
                 </Dropdown>
-                <CreateSnippet isMobile={isMobile} />
+                <CreateSnap isMobile={isMobile} />
             </div>
         </div>
     );

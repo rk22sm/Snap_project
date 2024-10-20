@@ -88,7 +88,7 @@ export default function NavBar() {
                                     />
                                 }
                             >
-                                New Snippet
+                                New Snap
                             </DropdownItem>
                         </DropdownSection>
 

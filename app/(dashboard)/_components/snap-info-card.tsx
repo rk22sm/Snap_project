@@ -4,17 +4,17 @@ import { Divider } from "@nextui-org/divider";
 
 import CardActions from "@/app/(dashboard)/_components/card-actions";
 
-interface SnippetInfoCardProps {
+interface SnapInfoCardProps {
     title: string;
     language: string;
     createdAt: string;
 }
 
-export default function SnippetInfoCard({
+export default function SnapInfoCard({
     title,
     language,
     createdAt,
-}: SnippetInfoCardProps) {
+}: SnapInfoCardProps) {
     return (
         <Card
             isHoverable

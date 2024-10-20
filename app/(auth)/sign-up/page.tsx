@@ -3,7 +3,7 @@ import { Bookmark, Code, Share2, Users } from "lucide-react";
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
 
-import AccessibleLink from "@/components/ui/AccessibleLink";
+import AccessibleLink from "@/components/ui/accessibleLink";
 import SignUpForm from "@/app/(auth)/sign-up/_components/signup-form";
 import { authOptions } from "@/lib/auth";
 import BrandLogo from "@/components/logo/brand-logo";

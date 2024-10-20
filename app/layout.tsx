@@ -2,13 +2,13 @@ import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import React from "react";
 import { Inter } from "next/font/google";
-import { Toaster } from "sonner";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 
 import { Providers } from "./providers";
 
 import TopLoader from "@/components/ui/top-loader";
+import CustomToaster from "@/components/ui/custom-toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -77,7 +77,7 @@ export default function RootLayout({
                 {/* NextJs TopLoader for loading animation */}
                 <TopLoader />
                 {/* Toast notifications for user feedback */}
-                <Toaster />
+                <CustomToaster />
             </body>
         </html>
     );
