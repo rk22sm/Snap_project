@@ -3,12 +3,12 @@ import { redirect } from "next/navigation";
 
 import NavBar from "./_components/nav-bar";
 import SearchFilter from "./_components/control-panel";
-import SnippetInfoCard from "./_components/snippet-info-card";
+import SnapInfoCard from "./_components/snap-info-card";
 
 import { authOptions } from "@/lib/auth";
 import { CommandMenu } from "@/components/ui/command-menu";
 
-const snippetData = [
+const SnapData = [
     {
         title: "hello_world",
         language: "JavaScript",
@@ -145,12 +145,12 @@ export default async function Page() {
                 <main className="m-auto mb-8 max-w-screen-xl px-6">
                     <h1 className="mb-4 text-lg font-medium">Snaps</h1>
                     <div className="m-auto grid grid-cols-[repeat(auto-fill,minmax(330px,1fr))] gap-4 lg:gap-6 xl:gap-8">
-                        {snippetData.map((snippet, index) => (
-                            <SnippetInfoCard
+                        {SnapData.map((Snap, index) => (
+                            <SnapInfoCard
                                 key={index}
-                                createdAt={snippet.createdAt}
-                                language={snippet.language}
-                                title={snippet.title}
+                                createdAt={Snap.createdAt}
+                                language={Snap.language}
+                                title={Snap.title}
                             />
                         ))}
                     </div>

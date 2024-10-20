@@ -125,7 +125,7 @@ export const languageOptions = [
     },
 ];
 
-export const codeSnippets: { [key: string]: string } = {
+export const codeSnaps: { [key: string]: string } = {
     JavaScript: `console.log("Hello, World!");`,
     TypeScript: `console.log("Hello, World!");`,
     Java: `public class Main {

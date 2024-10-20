@@ -20,10 +20,7 @@ export default function CardActions() {
             >
                 <Ellipsis height={16} width={16} />
             </DropdownTrigger>
-            <DropdownMenu
-                aria-label="Snippet Card Dropdown menu"
-                variant="flat"
-            >
+            <DropdownMenu aria-label="Snap Card Dropdown menu" variant="flat">
                 <DropdownItem
                     key="copy"
                     startContent={<Clipboard className={iconClasses} />}
@@ -34,13 +31,13 @@ export default function CardActions() {
                     key="view"
                     startContent={<Eye className={iconClasses} />}
                 >
-                    View snippet
+                    View Snap
                 </DropdownItem>
                 <DropdownItem
                     key="edit"
                     startContent={<Edit className={iconClasses} />}
                 >
-                    Edit snippet
+                    Edit Snap
                 </DropdownItem>
                 <DropdownItem
                     key="delete"
@@ -49,7 +46,7 @@ export default function CardActions() {
                         <Trash className={cn(iconClasses, "text-current")} />
                     }
                 >
-                    Delete snippet
+                    Delete Snap
                 </DropdownItem>
             </DropdownMenu>
         </Dropdown>

@@ -12,7 +12,7 @@ import { Divider } from "@nextui-org/divider";
 import { useState } from "react";
 import { EyeFilledIcon, EyeSlashFilledIcon } from "@nextui-org/shared-icons";
 
-import AccessibleLink from "@/components/ui/AccessibleLink";
+import AccessibleLink from "@/components/ui/accessibleLink";
 import { Google } from "@/components/icon/google";
 
 const SignInForm = () => {

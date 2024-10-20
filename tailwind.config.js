@@ -28,6 +28,13 @@ module.exports = {
                     },
                 },
             },
+            colors: {
+                danger: {
+                    DEFAULT: "#ff4d4f",
+                    dark: "#ff4d4f",
+                    light: "#ff4d4f",
+                },
+            },
         },
     },
     darkMode: "class",
