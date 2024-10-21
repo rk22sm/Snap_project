@@ -1,12 +1,12 @@
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
+import { Folder } from "lucide-react";
 
-import NavBar from "./_components/nav-bar";
-import SearchFilter from "./_components/control-panel";
-import SnapInfoCard from "./_components/snap-info-card";
-
+import ControlPanel from "@/app/(dashboard)/_components/control-panel";
+import SnapInfoCard from "@/app/(dashboard)/_components/snap-info-card";
 import { authOptions } from "@/lib/auth";
-import { CommandMenu } from "@/components/ui/command-menu";
+import NavBar from "@/app/(dashboard)/_components/nav-bar";
+import Footer from "@/app/(dashboard)/_components/footer";
 
 const SnapData = [
     {
@@ -138,12 +138,14 @@ export default async function Page() {
         redirect("/sign-in");
     } else
         return (
-            <div>
+            <div className="space-y-6">
                 <NavBar />
-                <SearchFilter />
-                <CommandMenu />
-                <main className="m-auto mb-8 max-w-screen-xl px-6">
-                    <h1 className="mb-4 text-lg font-medium">Snaps</h1>
+                <ControlPanel />
+                <main className="m-auto max-w-screen-xl space-y-4 px-6">
+                    <div className="flex items-center gap-2 text-lg font-medium">
+                        <Folder className="fill-foreground" />
+                        <h1>Snaps</h1>
+                    </div>
                     <div className="m-auto grid grid-cols-[repeat(auto-fill,minmax(330px,1fr))] gap-4 lg:gap-6 xl:gap-8">
                         {SnapData.map((Snap, index) => (
                             <SnapInfoCard
@@ -155,6 +157,7 @@ export default async function Page() {
                         ))}
                     </div>
                 </main>
+                <Footer />
             </div>
         );
 }

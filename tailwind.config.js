@@ -34,6 +34,11 @@ module.exports = {
                     dark: "#ff4d4f",
                     light: "#ff4d4f",
                 },
+                success: {
+                    DEFAULT: "#007d4e",
+                    dark: "#007d4e",
+                    light: "#007d4e",
+                },
             },
         },
     },
