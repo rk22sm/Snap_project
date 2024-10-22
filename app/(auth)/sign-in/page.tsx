@@ -74,7 +74,7 @@ export default async function Page() {
                             Sign in to CodeSnap
                         </h1>
                         <p className="opacity-70">
-                            Don&lsquo;t have an account,&nbsp;
+                            Don&lsquo;t have an account?&nbsp;
                             <AccessibleLink href="/sign-up">
                                 Sign up
                             </AccessibleLink>
