@@ -9,7 +9,7 @@ import {
 import { cn } from "@nextui-org/theme";
 import { Clipboard, Edit, Ellipsis, Eye, Trash } from "lucide-react";
 
-export default function CardActions() {
+export default function CardMenu() {
     const iconClasses = "w-4 text-default-500 flex-shrink-0";
 
     return (

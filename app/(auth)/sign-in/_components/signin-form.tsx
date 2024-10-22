@@ -1,7 +1,6 @@
 "use client";
 
 import { z } from "zod";
-import { signIn } from "next-auth/react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
@@ -14,6 +13,7 @@ import { EyeFilledIcon, EyeSlashFilledIcon } from "@nextui-org/shared-icons";
 
 import AccessibleLink from "@/components/ui/accessibleLink";
 import { Google } from "@/components/icon/google";
+import { GoogleSignIn, SignIn } from "@/actions";
 
 const SignInForm = () => {
     const router = useRouter();
@@ -36,11 +36,7 @@ const SignInForm = () => {
 
     const onSubmit = async (values: z.infer<typeof FormSchema>) => {
         try {
-            const signInData = await signIn("credentials", {
-                redirect: false,
-                email: values.email,
-                password: values.password,
-            });
+            const signInData = await SignIn(values);
 
             if (!signInData?.error) {
                 toast.success("Signed in successfully.");
@@ -57,10 +53,7 @@ const SignInForm = () => {
 
     const signInWithGoogleOnClickHandler = async () => {
         try {
-            await signIn("google", {
-                redirect: false,
-                callbackUrl: "/",
-            });
+            await GoogleSignIn();
         } catch (error) {
             toast.error(
                 "An unexpected error occurred. Please try again later.",

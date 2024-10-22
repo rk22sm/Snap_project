@@ -38,13 +38,22 @@ export default function CreateSnap({ isMobile }: { isMobile: boolean }) {
         defaultValues: {
             language: "",
             snapName: "",
-            visibility: "public",
+            visibility: "",
         },
     });
 
     const onSubmit = async (values: z.infer<typeof FormSchema>) => {
-        toast.success("Snap Created Successfully");
-        // console.log(values);
+        const promise = new Promise<{ name: string }>((resolve) =>
+            setTimeout(() => resolve({ name: values.snapName }), 2000),
+        );
+
+        toast.promise(promise, {
+            loading: "Loading...",
+            success: (data: { name: string }) => {
+                return `${data.name} snap is created`;
+            },
+            error: "Error",
+        });
     };
 
     const handleModalClose = () => {

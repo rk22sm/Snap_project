@@ -11,21 +11,26 @@ import {
 } from "@nextui-org/dropdown";
 import { User } from "@nextui-org/user";
 import { Avatar } from "@nextui-org/avatar";
-import { signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { Home, LogOut, PlusIcon } from "lucide-react";
+import { toast } from "sonner";
 
 import { ThemeSwitch } from "@/components/ui/theme-switch";
 import BrandLogo from "@/components/logo/brand-logo";
 import Logo from "@/components/logo/logo";
+import { SignOut } from "@/actions";
 
 export default function NavBar() {
     const { data: session } = useSession();
 
-    const handleSignOut = () => {
-        signOut({
-            redirect: true,
-            callbackUrl: `${window.location.origin}/sign-in`,
-        });
+    const handleSignOut = async () => {
+        try {
+            await SignOut();
+        } catch (error) {
+            toast.error(
+                "An unexpected error occurred. Please try again later.",
+            );
+        }
     };
 
     const iconClasses =

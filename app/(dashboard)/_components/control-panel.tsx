@@ -11,11 +11,10 @@ import {
 import { Button } from "@nextui-org/button";
 import { useState, useMemo } from "react";
 
-import CreateSnap from "./create-snap";
-
+import CreateSnap from "@/app/(dashboard)/_components/create-snap";
 import useMediaQuery from "@/hooks/media-query";
 
-export default function SearchFilter() {
+export default function ControlPanel() {
     const [selectedKeys, setSelectedKeys] = useState<Set<string>>(
         new Set(["sort_by_date"]),
     );
@@ -28,7 +27,7 @@ export default function SearchFilter() {
     const isMobile = useMediaQuery("(max-width: 640px)");
 
     return (
-        <div className="m-auto flex max-w-screen-xl justify-between gap-4 p-6">
+        <div className="m-auto flex max-w-screen-xl justify-between gap-4 px-6">
             <Input
                 fullWidth
                 isClearable

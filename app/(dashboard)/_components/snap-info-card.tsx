@@ -2,7 +2,7 @@ import { Card, CardHeader, CardFooter } from "@nextui-org/card";
 import { Image } from "@nextui-org/image";
 import { Divider } from "@nextui-org/divider";
 
-import CardActions from "@/app/(dashboard)/_components/card-actions";
+import CardMenu from "@/app/(dashboard)/_components/card-menu";
 
 interface SnapInfoCardProps {
     title: string;
@@ -41,7 +41,7 @@ export default function SnapInfoCard({
                         </p>
                     </div>
                 </div>
-                <CardActions />
+                <CardMenu />
             </CardHeader>
             <Divider />
             <CardFooter>
