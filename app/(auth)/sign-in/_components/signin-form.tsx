@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { Divider } from "@nextui-org/divider";
 import { useState } from "react";
 import { EyeFilledIcon, EyeSlashFilledIcon } from "@nextui-org/shared-icons";
+import { Spinner } from "@nextui-org/spinner";
 
 import AccessibleLink from "@/components/ui/accessibleLink";
 import { Google } from "@/components/icon/google";
@@ -17,6 +18,14 @@ import { GoogleSignIn, SignIn } from "@/actions";
 
 const SignInForm = () => {
     const router = useRouter();
+
+    const [authLoading, setAuthLoading] = useState({
+        credential: false,
+        google: false,
+    });
+
+    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+    const toggleVisibility = () => setIsPasswordVisible(!isPasswordVisible);
 
     const FormSchema = z.object({
         email: z.string().min(1, "Email is required").email("Invalid email"),
@@ -36,9 +45,10 @@ const SignInForm = () => {
 
     const onSubmit = async (values: z.infer<typeof FormSchema>) => {
         try {
-            const signInData = await SignIn(values);
+            setAuthLoading((prev) => ({ ...prev, credential: true }));
+            const response = await SignIn(values);
 
-            if (!signInData?.error) {
+            if (response?.ok) {
                 toast.success("Signed in successfully.");
                 router.push("/");
             } else {
@@ -48,21 +58,25 @@ const SignInForm = () => {
             toast.error(
                 "An unexpected error occurred. Please try again later.",
             );
+        } finally {
+            setAuthLoading((prev) => ({ ...prev, credential: false }));
         }
     };
 
     const signInWithGoogleOnClickHandler = async () => {
         try {
+            setAuthLoading((prev) => ({ ...prev, google: true }));
             await GoogleSignIn();
         } catch (error) {
             toast.error(
                 "An unexpected error occurred. Please try again later.",
             );
+        } finally {
+            setAuthLoading((prev) => ({ ...prev, google: false }));
         }
     };
 
-    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-    const toggleVisibility = () => setIsPasswordVisible(!isPasswordVisible);
+    const isLoading = authLoading.credential || authLoading.google;
 
     return (
         <form
@@ -70,6 +84,7 @@ const SignInForm = () => {
             onSubmit={form.handleSubmit(onSubmit)}
         >
             <Input
+                isDisabled={isLoading}
                 label="Email"
                 placeholder="mail@example.com"
                 required={false}
@@ -92,6 +107,7 @@ const SignInForm = () => {
                         )}
                     </button>
                 }
+                isDisabled={isLoading}
                 isInvalid={!!form.formState.errors.password}
                 {...form.register("password")}
                 errorMessage={form.formState.errors.password?.message}
@@ -100,8 +116,17 @@ const SignInForm = () => {
                 required={false}
                 type={isPasswordVisible ? "text" : "password"}
             />
-            <Button className="font-semibold" color="primary" type="submit">
-                Continue
+            <Button
+                className="font-semibold"
+                color="primary"
+                isDisabled={isLoading}
+                type="submit"
+            >
+                {authLoading.credential ? (
+                    <Spinner color="current" size="sm" />
+                ) : (
+                    "Continue"
+                )}
             </Button>
             <div className="grid grid-cols-[1fr,_auto,_1fr] items-center gap-2">
                 <Divider />
@@ -110,11 +135,18 @@ const SignInForm = () => {
             </div>
             <Button
                 className="font-semibold"
+                isDisabled={isLoading}
+                startContent={
+                    authLoading.google ? (
+                        <Spinner size="sm" />
+                    ) : (
+                        <Google size={20} />
+                    )
+                }
                 type="button"
                 variant="ghost"
                 onClick={signInWithGoogleOnClickHandler}
             >
-                <Google size={20} />
                 Sign in with Google
             </Button>
             <p className="text-center text-sm opacity-80">

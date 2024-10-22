@@ -10,6 +10,7 @@ import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { EyeFilledIcon, EyeSlashFilledIcon } from "@nextui-org/shared-icons";
+import { Spinner } from "@nextui-org/spinner";
 
 import AccessibleLink from "@/components/ui/accessibleLink";
 import { Google } from "@/components/icon/google";
@@ -17,6 +18,15 @@ import { SignUp, GoogleSignIn } from "@/actions";
 
 const SignUpForm = () => {
     const router = useRouter();
+
+    const [authLoading, setAuthLoading] = useState({
+        credential: false,
+        google: false,
+    });
+
+    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+    const toggleVisibility = () => setIsPasswordVisible(!isPasswordVisible);
+
     const FormSchema = z.object({
         name: z.string().min(1, "Name is required").max(100),
         email: z.string().min(1, "Email is required").email("Invalid email"),
@@ -37,32 +47,38 @@ const SignUpForm = () => {
 
     const onSubmit = async (values: z.infer<typeof FormSchema>) => {
         try {
+            setAuthLoading((prev) => ({ ...prev, credential: true }));
             const response = await SignUp(values);
 
             if (response.ok) {
+                toast.success("Signup was successful. Please sign in.");
                 router.push("/sign-in");
-                toast.success("Signed up successfully.");
             } else {
-                toast.error("An error occurred. Please try again.");
+                toast.error("Credentials are invalid or already in use.");
             }
         } catch (error) {
             toast.error(
                 "An unexpected error occurred. Please try again later.",
             );
+        } finally {
+            setAuthLoading((prev) => ({ ...prev, credential: false }));
         }
     };
 
     const signInWithGoogleOnClickHandler = async () => {
         try {
+            setAuthLoading((prev) => ({ ...prev, google: true }));
             await GoogleSignIn();
         } catch (error) {
             toast.error(
                 "An unexpected error occurred. Please try again later.",
             );
+        } finally {
+            setAuthLoading((prev) => ({ ...prev, google: false }));
         }
     };
-    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-    const toggleVisibility = () => setIsPasswordVisible(!isPasswordVisible);
+
+    const loading = authLoading.credential || authLoading.google;
 
     return (
         <form
@@ -70,6 +86,7 @@ const SignUpForm = () => {
             onSubmit={form.handleSubmit(onSubmit)}
         >
             <Input
+                isDisabled={loading}
                 label="Name"
                 placeholder="John Doe"
                 required={false}
@@ -78,6 +95,7 @@ const SignUpForm = () => {
                 isInvalid={!!form.formState.errors.name}
             />
             <Input
+                isDisabled={loading}
                 label="Email"
                 placeholder="mail@example.com"
                 required={false}
@@ -100,6 +118,7 @@ const SignUpForm = () => {
                         )}
                     </button>
                 }
+                isDisabled={loading}
                 isInvalid={!!form.formState.errors.password}
                 {...form.register("password")}
                 errorMessage={form.formState.errors.password?.message}
@@ -108,8 +127,17 @@ const SignUpForm = () => {
                 required={false}
                 type={isPasswordVisible ? "text" : "password"}
             />
-            <Button className="font-semibold" color="primary" type="submit">
-                Create account
+            <Button
+                className="font-semibold"
+                color="primary"
+                isDisabled={loading}
+                type="submit"
+            >
+                {authLoading.credential ? (
+                    <Spinner color="current" size="sm" />
+                ) : (
+                    "Create account"
+                )}
             </Button>
             <div className="grid grid-cols-[1fr,_auto,_1fr] items-center gap-2">
                 <Divider />
@@ -118,7 +146,14 @@ const SignUpForm = () => {
             </div>
             <Button
                 className="font-semibold"
-                startContent={<Google size={20} />}
+                isDisabled={loading}
+                startContent={
+                    authLoading.google ? (
+                        <Spinner size="sm" />
+                    ) : (
+                        <Google size={20} />
+                    )
+                }
                 variant="ghost"
                 onClick={signInWithGoogleOnClickHandler}
             >
