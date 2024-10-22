@@ -14,6 +14,7 @@ export const authOptions: NextAuthOptions = {
     },
     pages: {
         signIn: "/sign-in",
+        error: "/auth-error",
     },
     providers: [
         CredentialsProvider({
@@ -22,7 +23,6 @@ export const authOptions: NextAuthOptions = {
                 email: {
                     label: "Email",
                     type: "email",
-                    placeholder: "johndoe@example.com",
                 },
                 password: { label: "Password", type: "password" },
             },
