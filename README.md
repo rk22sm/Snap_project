@@ -15,7 +15,6 @@
   ![GitHub License](https://img.shields.io/github/license/RanitManik/CodeSnap)
   ![GitHub stars](https://img.shields.io/github/stars/RanitManik/CodeSnap?style=default)
   ![GitHub forks](https://img.shields.io/github/forks/RanitManik/CodeSnap?style=default)
-  <br/>
   ![Wakatime](https://wakatime.com/badge/github/RanitManik/CodeSnap.svg)
 </div>  
 
