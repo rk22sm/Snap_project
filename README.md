@@ -8,17 +8,19 @@
   <a href=".github/ISSUE_TEMPLATE/feature_request.md">Request Feature</a>
   <br/>
   <br/>
-  
-  ![GitHub Created At](https://img.shields.io/github/created-at/RanitManik/CodeSnap)
-  ![GitHub repo size](https://img.shields.io/github/repo-size/RanitManik/CodeSnap)
-  ![GitHub Discussions](https://img.shields.io/github/discussions/RanitManik/CodeSnap)
-  ![GitHub License](https://img.shields.io/github/license/RanitManik/CodeSnap)
-  ![GitHub stars](https://img.shields.io/github/stars/RanitManik/CodeSnap?style=default)
-  ![GitHub forks](https://img.shields.io/github/forks/RanitManik/CodeSnap?style=default)
-  ![Wakatime](https://wakatime.com/badge/github/RanitManik/CodeSnap.svg)
+
+![GitHub Created At](https://img.shields.io/github/created-at/RanitManik/CodeSnap)
+![GitHub repo size](https://img.shields.io/github/repo-size/RanitManik/CodeSnap)
+![GitHub Discussions](https://img.shields.io/github/discussions/RanitManik/CodeSnap)
+![GitHub License](https://img.shields.io/github/license/RanitManik/CodeSnap)
+![GitHub stars](https://img.shields.io/github/stars/RanitManik/CodeSnap?style=default)
+![GitHub forks](https://img.shields.io/github/forks/RanitManik/CodeSnap?style=default)
+![Wakatime](https://wakatime.com/badge/github/RanitManik/CodeSnap.svg)
 </div>  
 
-Welcome to **CodeSnap**, a lightweight app for creating, sharing, running, and viewing code snippets with ease. Built to simplify code sharing, CodeSnap enables users to generate a shareable link for any snippet, making collaboration more efficient and accessible.
+Welcome to **CodeSnap**, a lightweight app for creating, sharing, running, and viewing code snippets with ease. Built to
+simplify code sharing, CodeSnap enables users to generate a shareable link for any snippet, making collaboration more
+efficient and accessible.
 
 ## Table of Contents
 
@@ -41,9 +43,12 @@ Welcome to **CodeSnap**, a lightweight app for creating, sharing, running, and v
 
 ### Why CodeSnap?
 
-**CodeSnap** was created to provide an easy-to-use solution for sharing code snippets, making collaboration faster and more intuitive. The platform supports syntax highlighting, code editing, and live code execution, so you can showcase and test code within seconds.
+**CodeSnap** was created to provide an easy-to-use solution for sharing code snippets, making collaboration faster and
+more intuitive. The platform supports syntax highlighting, code editing, and live code execution, so you can showcase
+and test code within seconds.
 
 ### Technologies Used
+
 <p> 
   <img src="https://img.shields.io/badge/next.js-%23000000.svg?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" height="30px"> 
   <img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="React" height="30px"> 
@@ -58,7 +63,8 @@ Welcome to **CodeSnap**, a lightweight app for creating, sharing, running, and v
 
 ### Features
 
-- **Real-time Code Editor**: Built with Monaco, the editor offers syntax highlighting, code completion, and error handling.
+- **Real-time Code Editor**: Built with Monaco, the editor offers syntax highlighting, code completion, and error
+  handling.
 - **Live Code Execution**: Test code snippets in real-time.
 - **Firebase Integration**: Reliable backend for storing, retrieving, and managing snippets.
 - **Responsive Design**: Optimized for both desktop and mobile.
@@ -172,10 +178,10 @@ Contributions to CodeSnap are welcome! To contribute:
 
 ## Links
 
-| Environment          | Link                                           |
-|----------------------|------------------------------------------------|
-| Development Server   | [codesnap-pro.vercel.app](https://codesnap-pro.vercel.app) |
-| Production Server    | [codesnap.ranitmanik.live](https://codesnap.ranitmanik.live) |
+| Environment        | Link                                                         |
+|--------------------|--------------------------------------------------------------|
+| Development Server | [codesnap-pro.vercel.app](https://codesnap-pro.vercel.app)   |
+| Production Server  | [codesnap.ranitmanik.live](https://codesnap.ranitmanik.live) |
 
 ## Contact
 
@@ -216,11 +222,13 @@ _Feel free to reach out if you have questions or just want to chat about web adv
 
 ## Acknowledgments
 
-This project wouldn't be possible without the collaboration and resources of the developer community. Thanks to the community and tools like React and Nextjs. Special appreciation goes to friends and family. I hope it inspires further learning.
+This project wouldn't be possible without the collaboration and resources of the developer community. Thanks to the
+community and tools like React and Nextjs. Special appreciation goes to friends and family. I hope it inspires further
+learning.
 
 ---
 
 <p align="center">
-   Thank you for using <strong>CodeSnap</strong>! Happy chatting! 🚀
+   Thank you for using <strong>CodeSnap</strong>! Happy coding! 👨‍💻
 </p>
 
