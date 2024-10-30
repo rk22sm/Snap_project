@@ -11,7 +11,6 @@
 
 ![GitHub Created At](https://img.shields.io/github/created-at/RanitManik/CodeSnap)
 ![GitHub repo size](https://img.shields.io/github/repo-size/RanitManik/CodeSnap)
-![GitHub Discussions](https://img.shields.io/github/discussions/RanitManik/CodeSnap)
 ![GitHub License](https://img.shields.io/github/license/RanitManik/CodeSnap)
 ![GitHub stars](https://img.shields.io/github/stars/RanitManik/CodeSnap?style=default)
 ![GitHub forks](https://img.shields.io/github/forks/RanitManik/CodeSnap?style=default)
