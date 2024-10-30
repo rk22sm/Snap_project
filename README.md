@@ -6,15 +6,17 @@
   <a href=".github/ISSUE_TEMPLATE/bug_report.md">Report Bug</a>
   ·
   <a href=".github/ISSUE_TEMPLATE/feature_request.md">Request Feature</a>
+  <br/>  
   <br/>
-  <br/>
-
-![GitHub Created At](https://img.shields.io/github/created-at/RanitManik/CodeSnap)
-![GitHub repo size](https://img.shields.io/github/repo-size/RanitManik/CodeSnap)
-![GitHub License](https://img.shields.io/github/license/RanitManik/CodeSnap)
-![GitHub stars](https://img.shields.io/github/stars/RanitManik/CodeSnap?style=default)
-![GitHub forks](https://img.shields.io/github/forks/RanitManik/CodeSnap?style=default)
-![Wakatime](https://wakatime.com/badge/github/RanitManik/CodeSnap.svg)
+  
+  ![excited](https://github.com/user-attachments/assets/48f47285-cfe2-41db-8b50-a6a57987c6e9)
+  
+  ![GitHub Created At](https://img.shields.io/github/created-at/RanitManik/CodeSnap)
+  ![GitHub repo size](https://img.shields.io/github/repo-size/RanitManik/CodeSnap)
+  ![GitHub License](https://img.shields.io/github/license/RanitManik/CodeSnap)
+  ![GitHub stars](https://img.shields.io/github/stars/RanitManik/CodeSnap?style=default)
+  ![GitHub forks](https://img.shields.io/github/forks/RanitManik/CodeSnap?style=default)
+  ![Wakatime](https://wakatime.com/badge/github/RanitManik/CodeSnap.svg)
 </div>  
 
 Welcome to **CodeSnap**, a lightweight app for creating, sharing, running, and viewing code snippets with ease. Built to
