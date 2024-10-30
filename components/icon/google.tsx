@@ -1,6 +1,9 @@
 import * as React from "react";
+import { SVGProps } from "react";
 
-import { IconSvgProps } from "@/types";
+interface IconSvgProps extends SVGProps<SVGSVGElement> {
+    size?: number;
+}
 
 // Google Logo
 export const Google: React.FC<IconSvgProps> = ({
