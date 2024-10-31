@@ -13,15 +13,17 @@ export default function page() {
     return (
         <ResizablePanelGroup direction="horizontal">
             <ResizablePanel className="h-svh" minSize={40}>
-                <div className="flex h-12 items-center justify-between bg-content2 px-6">
-                    <div className="flex gap-2">
+                <div className="flex h-12 items-center justify-between border-b border-content3 bg-content2 px-6">
+                    <div className="flex select-none gap-3">
                         <Image
-                            height={20}
+                            height={25}
                             radius="sm"
                             src={`https://skillicons.dev/icons?i=js`}
-                            width={20}
+                            width={25}
                         />
-                        <h1>My First App</h1>
+                        <h1 className="line-clamp-1 max-w-60">
+                            Hello World
+                        </h1>
                     </div>
                     <Button
                         className="text-sm font-semibold text-white"
@@ -36,7 +38,7 @@ export default function page() {
             </ResizablePanel>
             <ResizableHandle withHandle />
             <ResizablePanel className="h-svh">
-                <div className="flex h-12 items-center bg-content2 px-6">
+                <div className="flex h-12 select-none items-center border-b border-content3 bg-content2 px-6">
                     <h2>Output</h2>
                 </div>
                 <div className="h-full bg-content1" />

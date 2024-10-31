@@ -1,10 +1,13 @@
 "use client";
 
 import { Editor, EditorProps } from "@monaco-editor/react";
+import { useTheme } from "next-themes";
 
 import CodeEditorSkeleton from "@/app/(dashboard)/snap/[id]/_components/CodeEditorSkeleton";
 
 export default function CodeEditor(props: EditorProps) {
+    const { theme } = useTheme();
+
     return (
         <Editor
             defaultLanguage="javascript"
@@ -20,7 +23,7 @@ export default function CodeEditor(props: EditorProps) {
                 },
                 wordWrap: "on",
             }}
-            theme="vs-dark"
+            theme={theme === "dark" ? "vs-dark" : "light"}
             {...props}
         />
     );
