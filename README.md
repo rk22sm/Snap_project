@@ -1,22 +1,22 @@
 <div align="center">
   <img height="70px" src="https://github.com/user-attachments/assets/89a292d5-674e-41de-b0de-6af88c2042b3" alt="CodeSnap favicon">
   <h1>CodeSnap – Create, Run & Share Code Snippets</h1>
-  <a href="https://codesnap.ranitmanik.live/">View Demo</a>
+  <a href="https://codesnap.pro/">View Demo</a>
   ·
   <a href=".github/ISSUE_TEMPLATE/bug_report.md">Report Bug</a>
   ·
   <a href=".github/ISSUE_TEMPLATE/feature_request.md">Request Feature</a>
   <br/>  
   <br/>
-  
-  ![excited](https://github.com/user-attachments/assets/48f47285-cfe2-41db-8b50-a6a57987c6e9)
-  
-  ![GitHub Created At](https://img.shields.io/github/created-at/RanitManik/CodeSnap)
-  ![GitHub repo size](https://img.shields.io/github/repo-size/RanitManik/CodeSnap)
-  ![GitHub License](https://img.shields.io/github/license/RanitManik/CodeSnap)
-  ![GitHub stars](https://img.shields.io/github/stars/RanitManik/CodeSnap?style=default)
-  ![GitHub forks](https://img.shields.io/github/forks/RanitManik/CodeSnap?style=default)
-  ![Wakatime](https://wakatime.com/badge/github/RanitManik/CodeSnap.svg)
+
+![excited](https://github.com/user-attachments/assets/48f47285-cfe2-41db-8b50-a6a57987c6e9)
+
+![GitHub Created At](https://img.shields.io/github/created-at/RanitManik/CodeSnap)
+![GitHub repo size](https://img.shields.io/github/repo-size/RanitManik/CodeSnap)
+![GitHub License](https://img.shields.io/github/license/RanitManik/CodeSnap)
+![GitHub stars](https://img.shields.io/github/stars/RanitManik/CodeSnap?style=default)
+![GitHub forks](https://img.shields.io/github/forks/RanitManik/CodeSnap?style=default)
+![Wakatime](https://wakatime.com/badge/github/RanitManik/CodeSnap.svg)
 </div>  
 
 Welcome to **CodeSnap**, a lightweight app for creating, sharing, running, and viewing code snippets with ease. Built to
@@ -180,10 +180,10 @@ Contributions to CodeSnap are welcome! To contribute:
 
 ## Links
 
-| Environment        | Link                                                         |
-|--------------------|--------------------------------------------------------------|
-| Development Server | [codesnap-pro.vercel.app](https://codesnap-pro.vercel.app)   |
-| Production Server  | [codesnap.ranitmanik.live](https://codesnap.ranitmanik.live) |
+| Environment        | Link                                                       |
+|--------------------|------------------------------------------------------------|
+| Development Server | [codesnap-pro.vercel.app](https://codesnap-pro.vercel.app) |
+| Production Server  | [codesnap.pro](https://codesnap.ranitmanik.live)           |
 
 ## Contact
 

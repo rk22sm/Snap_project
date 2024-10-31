@@ -1,15 +1,19 @@
 import { ReactNode } from "react";
+import { redirect } from "next/navigation";
+import { getServerSession } from "next-auth";
 
-import { CommandMenu } from "@/components/ui/command-menu";
+import { authOptions } from "@/lib/auth";
+
 interface DashboardLayoutProps {
     children: ReactNode;
 }
 
-export default function DashboardLayout({ children }: DashboardLayoutProps) {
-    return (
-        <div>
-            <CommandMenu />
-            <div>{children}</div>
-        </div>
-    );
+export default async function DashboardLayout({
+    children,
+}: DashboardLayoutProps) {
+    const session = await getServerSession(authOptions);
+
+    if (!session) {
+        redirect("/sign-in");
+    } else return <>{children}</>;
 }

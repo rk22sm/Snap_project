@@ -1,12 +1,10 @@
-import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation";
 import { Folder } from "lucide-react";
 
 import ControlPanel from "@/app/(dashboard)/_components/control-panel";
 import SnapInfoCard from "@/app/(dashboard)/_components/snap-info-card";
-import { authOptions } from "@/lib/auth";
 import NavBar from "@/app/(dashboard)/_components/nav-bar";
 import Footer from "@/app/(dashboard)/_components/footer";
+import { CommandMenu } from "@/components/ui/command-menu";
 
 const SnapData = [
     {
@@ -132,32 +130,28 @@ const SnapData = [
 ];
 
 export default async function Page() {
-    const session = await getServerSession(authOptions);
-
-    if (!session) {
-        redirect("/sign-in");
-    } else
-        return (
-            <div className="space-y-6">
-                <NavBar />
-                <ControlPanel />
-                <main className="m-auto max-w-screen-xl space-y-4 px-6">
-                    <div className="flex items-center gap-2 text-lg font-medium">
-                        <Folder className="fill-foreground" />
-                        <h1>Snaps</h1>
-                    </div>
-                    <div className="m-auto grid grid-cols-[repeat(auto-fill,minmax(330px,1fr))] gap-4 lg:gap-6 xl:gap-8">
-                        {SnapData.map((Snap, index) => (
-                            <SnapInfoCard
-                                key={index}
-                                createdAt={Snap.createdAt}
-                                language={Snap.language}
-                                title={Snap.title}
-                            />
-                        ))}
-                    </div>
-                </main>
-                <Footer />
-            </div>
-        );
+    return (
+        <div className="space-y-6">
+            <NavBar />
+            <ControlPanel />
+            <CommandMenu />
+            <main className="m-auto max-w-screen-xl space-y-4 px-6">
+                <div className="flex items-center gap-2 text-lg font-medium">
+                    <Folder className="fill-foreground" />
+                    <h1>Snaps</h1>
+                </div>
+                <div className="m-auto grid grid-cols-[repeat(auto-fill,minmax(330px,1fr))] gap-4 lg:gap-6 xl:gap-8">
+                    {SnapData.map((Snap, index) => (
+                        <SnapInfoCard
+                            key={index}
+                            createdAt={Snap.createdAt}
+                            language={Snap.language}
+                            title={Snap.title}
+                        />
+                    ))}
+                </div>
+            </main>
+            <Footer />
+        </div>
+    );
 }
