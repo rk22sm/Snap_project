@@ -29,7 +29,11 @@ export default function CreateSnap({ isMobile }: { isMobile: boolean }) {
         snapName: z
             .string()
             .min(1, "Snap Name is required")
-            .max(20, "Snap Name must be less than 20 characters"),
+            .max(20, "Snap Name must be less than 20 characters")
+            .regex(
+                /^[a-zA-Z0-9_.]+$/,
+                "Snap Names can only include letters, numbers, underscores (_), and periods (.). No spaces or special characters allowed.",
+            ),
         visibility: z.string().min(1, "Visibility is required"),
     });
 
@@ -101,18 +105,18 @@ export default function CreateSnap({ isMobile }: { isMobile: boolean }) {
                             >
                                 {(language) => (
                                     <AutocompleteItem
-                                        key={language.language}
+                                        key={language.name}
                                         endContent={language.version}
                                         startContent={
                                             <Image
-                                                alt={language.language}
+                                                alt={language.name}
                                                 className="h-6 w-6 rounded-none bg-transparent"
-                                                src={language.imgUrl}
+                                                src={language.imageURL}
                                             />
                                         }
-                                        value={language.language}
+                                        value={language.name}
                                     >
-                                        {language.language}
+                                        {language.name}
                                     </AutocompleteItem>
                                 )}
                             </Autocomplete>

@@ -52,14 +52,14 @@ const SignInForm = () => {
                 toast.success("Signed in successfully.");
                 router.push("/");
             } else {
+                setAuthLoading((prev) => ({ ...prev, credential: false }));
                 toast.error("Invalid credentials. Please try again.");
             }
         } catch (error) {
+            setAuthLoading((prev) => ({ ...prev, credential: false }));
             toast.error(
                 "An unexpected error occurred. Please try again later.",
             );
-        } finally {
-            setAuthLoading((prev) => ({ ...prev, credential: false }));
         }
     };
 
@@ -68,11 +68,10 @@ const SignInForm = () => {
             setAuthLoading((prev) => ({ ...prev, google: true }));
             await GoogleSignIn();
         } catch (error) {
+            setAuthLoading((prev) => ({ ...prev, google: false }));
             toast.error(
                 "An unexpected error occurred. Please try again later.",
             );
-        } finally {
-            setAuthLoading((prev) => ({ ...prev, google: false }));
         }
     };
 

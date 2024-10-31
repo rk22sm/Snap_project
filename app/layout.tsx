@@ -22,12 +22,12 @@ export const metadata: Metadata = {
         name: "Ranit Manik",
         url: "https://github.com/RanitManik",
     },
-    metadataBase: new URL("https://codesnap.ranitmanik.live/"),
+    metadataBase: new URL("https://codesnap.pro/"),
     openGraph: {
         title: "CodeSnap - Create, Run & Share Code Instantly",
         description:
             "Create, Run and share code snippets quickly and easily with CodeSnap. Create and view code snippets with a single link.",
-        url: "https://codesnap.ranitmanik.live/",
+        url: "https://codesnap.pro/",
         type: "website",
         images: [
             {

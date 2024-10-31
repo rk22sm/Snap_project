@@ -21,9 +21,7 @@ export default function page() {
                             src={`https://skillicons.dev/icons?i=js`}
                             width={25}
                         />
-                        <h1 className="line-clamp-1 max-w-60">
-                            Hello World
-                        </h1>
+                        <h1 className="line-clamp-1 max-w-60">Hello World</h1>
                     </div>
                     <Button
                         className="text-sm font-semibold text-white"

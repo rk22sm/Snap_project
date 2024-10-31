@@ -1,180 +1,259 @@
+// We are currently supporting total 40 Languages
+
 export const languageOptions = [
     {
-        language: "JavaScript",
-        version: "18.15.0",
-        imgUrl: "https://skillicons.dev/icons?i=javascript",
-        aliases: ["node-javascript", "node-js", "javascript", "js"],
-        runtime: "node",
+        name: "bash",
+        version: "5.2.0",
+        imageURL: "https://skillicons.dev/icons?i=bash",
     },
     {
-        language: "TypeScript",
-        version: "5.0.3",
-        imgUrl: "https://skillicons.dev/icons?i=typescript",
-        aliases: ["ts", "node-ts", "tsc", "typescript5", "ts5"],
+        name: "basic.net",
+        version: "5.0.201",
+        imageURL: "https://skillicons.dev/icons?i=dotnet",
     },
     {
-        language: "Java",
-        version: "15.0.2",
-        imgUrl: "https://skillicons.dev/icons?i=java",
-        aliases: [],
-    },
-    {
-        language: "Python",
-        version: "3.10.0",
-        imgUrl: "https://skillicons.dev/icons?i=python",
-        aliases: ["py", "py3", "python3", "python3.10"],
-    },
-    {
-        language: "C",
+        name: "c",
         version: "10.2.0",
-        imgUrl: "https://skillicons.dev/icons?i=c",
-        aliases: ["gcc"],
-        runtime: "gcc",
+        imageURL: "https://skillicons.dev/icons?i=c",
     },
     {
-        language: "C#",
-        version: "6.12.0",
-        imgUrl: "https://skillicons.dev/icons?i=cs",
-        aliases: ["mono", "mono-csharp", "mono-c#", "mono-cs", "c#", "cs"],
-        runtime: "mono",
-    },
-    {
-        language: "C++",
+        name: "c++",
         version: "10.2.0",
-        imgUrl: "https://skillicons.dev/icons?i=cpp",
-        aliases: ["cpp", "g++"],
-        runtime: "gcc",
+        imageURL: "https://skillicons.dev/icons?i=cpp",
     },
     {
-        language: "Go",
-        version: "1.16.2",
-        imgUrl: "https://skillicons.dev/icons?i=go",
-        aliases: ["go", "golang"],
+        name: "clojure",
+        version: "1.10.3",
+        imageURL: "https://skillicons.dev/icons?i=clojure",
     },
     {
-        language: "Ruby",
-        version: "3.0.1",
-        imgUrl: "https://skillicons.dev/icons?i=ruby",
-        aliases: ["ruby3", "rb"],
+        name: "coffeescript",
+        version: "2.5.1",
+        imageURL: "https://skillicons.dev/icons?i=coffeescript",
     },
     {
-        language: "Rust",
-        version: "1.68.2",
-        imgUrl: "https://skillicons.dev/icons?i=rust",
-        aliases: ["rs"],
+        name: "crystal",
+        version: "0.36.1",
+        imageURL: "https://skillicons.dev/icons?i=crystal",
     },
     {
-        language: "Swift",
-        version: "5.3",
-        imgUrl: "https://skillicons.dev/icons?i=swift",
-        aliases: ["swift5"],
+        name: "csharp",
+        version: "5.0.201",
+        imageURL: "https://skillicons.dev/icons?i=cs",
     },
     {
-        language: "Kotlin",
-        version: "1.5.0",
-        imgUrl: "https://skillicons.dev/icons?i=kotlin",
-        aliases: ["kt"],
+        name: "dart",
+        version: "2.19.6",
+        imageURL: "https://skillicons.dev/icons?i=dart",
     },
     {
-        language: "Perl",
-        version: "5.32.0",
-        imgUrl: "https://skillicons.dev/icons?i=perl",
-        aliases: ["pl"],
-    },
-    {
-        language: "Scala",
-        version: "2.13.5",
-        imgUrl: "https://skillicons.dev/icons?i=scala",
-        aliases: ["scala2"],
-    },
-    {
-        language: "Dart",
-        version: "2.12.0",
-        imgUrl: "https://skillicons.dev/icons?i=dart",
-        aliases: ["dart2"],
-    },
-    {
-        language: "Haskell",
-        version: "8.10.4",
-        imgUrl: "https://skillicons.dev/icons?i=haskell",
-        aliases: ["hs"],
-    },
-    {
-        language: "Elixir",
+        name: "elixir",
         version: "1.11.3",
-        imgUrl: "https://skillicons.dev/icons?i=elixir",
-        aliases: ["ex"],
+        aliases: ["elixir", "exs"],
+        imageURL: "https://skillicons.dev/icons?i=elixir",
     },
     {
-        language: "R",
-        version: "4.0.3",
-        imgUrl: "https://skillicons.dev/icons?i=r",
-        aliases: ["r"],
+        name: "emacs",
+        version: "27.1.0",
+        aliases: ["emacs", "el", "elisp"],
+        imageURL: "https://skillicons.dev/icons?i=emacs",
     },
     {
-        language: "Bash",
-        version: "5.1.0",
-        imgUrl: "https://skillicons.dev/icons?i=bash",
-        aliases: ["sh"],
+        name: "forth",
+        version: "0.7.3",
+        aliases: ["gforth"],
+        imageURL: "https://skillicons.dev/icons?i=forth",
     },
     {
-        language: "PHP",
+        name: "fortran",
+        version: "10.2.0",
+        imageURL: "https://skillicons.dev/icons?i=fortran",
+    },
+    {
+        name: "go",
+        version: "1.16.2",
+        imageURL: "https://skillicons.dev/icons?i=go",
+    },
+    {
+        name: "haskell",
+        version: "9.0.1",
+        imageURL: "https://skillicons.dev/icons?i=haskell",
+    },
+    {
+        name: "iverilog",
+        version: "11.0.0",
+        imageURL: "https://www.svgrepo.com/show/374163/verilog.svg",
+    },
+    {
+        name: "java",
+        version: "15.0.2",
+        imageURL: "https://skillicons.dev/icons?i=java",
+    },
+    {
+        name: "javascript",
+        version: "18.15.0",
+        imageURL: "https://skillicons.dev/icons?i=javascript",
+    },
+    {
+        name: "julia",
+        version: "1.8.5",
+        imageURL: "https://skillicons.dev/icons?i=julia",
+    },
+    {
+        name: "kotlin",
+        version: "1.8.20",
+        imageURL: "https://skillicons.dev/icons?i=kotlin",
+    },
+    {
+        name: "lua",
+        version: "5.4.4",
+        imageURL: "https://skillicons.dev/icons?i=lua",
+    },
+    {
+        name: "matlab",
+        version: "22.7.4",
+        imageURL: "https://www.svgrepo.com/show/373830/matlab.svg",
+    },
+    {
+        name: "ocaml",
+        version: "4.12.0",
+        aliases: ["ocaml", "ml"],
+        imageURL: "https://skillicons.dev/icons?i=ocaml",
+    },
+    {
+        name: "octave",
+        version: "8.1.0",
+        aliases: ["matlab", "m"],
+        imageURL: "https://skillicons.dev/icons?i=octave",
+    },
+    {
+        name: "pascal",
+        version: "3.2.2",
+        imageURL: "https://cryptologos.cc/logos/pascal-pasc-logo.svg",
+    },
+    {
+        name: "perl",
+        version: "5.36.0",
+        imageURL: "https://skillicons.dev/icons?i=perl",
+    },
+    {
+        name: "php",
         version: "8.2.3",
-        imgUrl: "https://skillicons.dev/icons?i=php",
-        aliases: [],
+        imageURL: "https://skillicons.dev/icons?i=php",
+    },
+    {
+        name: "powershell",
+        version: "7.1.4",
+        imageURL: "https://skillicons.dev/icons?i=powershell",
+    },
+    {
+        name: "prolog",
+        version: "8.2.4",
+        imageURL: "https://www.svgrepo.com/show/374005/prolog.svg",
+    },
+    {
+        name: "python",
+        version: "3.10.0",
+        imageURL: "https://skillicons.dev/icons?i=python",
+    },
+    {
+        name: "racket",
+        version: "8.3.0",
+        imageURL: "https://www.svgrepo.com/show/374028/racket.svg",
+    },
+    {
+        name: "rscript",
+        version: "4.1.1",
+        imageURL: "https://skillicons.dev/icons?i=r",
+    },
+    {
+        name: "ruby",
+        version: "3.0.1",
+        imageURL: "https://skillicons.dev/icons?i=ruby",
+    },
+    {
+        name: "rust",
+        version: "1.68.2",
+        imageURL: "https://skillicons.dev/icons?i=rust",
+    },
+    {
+        name: "scala",
+        version: "3.2.2",
+        imageURL: "https://skillicons.dev/icons?i=scala",
+    },
+    {
+        name: "sqlite3",
+        version: "3.36.0",
+        imageURL: "https://skillicons.dev/icons?i=sqlite",
+    },
+    {
+        name: "swift",
+        version: "5.3.3",
+        imageURL: "https://skillicons.dev/icons?i=swift",
+    },
+    {
+        name: "typescript",
+        version: "5.0.3",
+        imageURL: "https://skillicons.dev/icons?i=typescript",
+    },
+    {
+        name: "vlang",
+        version: "0.3.3",
+        imageURL: "https://skillicons.dev/icons?i=v",
+    },
+    {
+        name: "zig",
+        version: "0.10.1",
+        imageURL: "https://skillicons.dev/icons?i=zig",
     },
 ];
 
-export const codeSnaps: { [key: string]: string } = {
-    JavaScript: `console.log("Hello, World!");`,
-    TypeScript: `console.log("Hello, World!");`,
-    Java: `public class Main {
+export const codeSnaps = {
+    bash: `echo "Hello, World!"`,
+    c: `#include <stdio.h>
+    int main() {
+      printf("Hello, World!");
+      return 0;
+    }`,
+    cs: `using System;
+    class Program {
+        static void Main() {
+            Console.WriteLine("Hello, World!");
+        }
+    }`,
+    cpp: `#include <iostream>
+    int main() {
+      std::cout << "Hello, World!";
+      return 0;
+    }`,
+    dart: `void main() {
+      print('Hello, World!');
+    }`,
+    elixir: `IO.puts "Hello, World!"`,
+    go: `package main
+    import "fmt"
+    func main() {
+      fmt.Println("Hello, World!")
+    }`,
+    haskell: `main = putStrLn "Hello, World!"`,
+    java: `public class Main {
     public static void main(String[] args) {
         System.out.println("Hello, World!");
-    }
-}`,
-    Python: `print("Hello, World!")`,
-    C: `#include <stdio.h>
-int main() {
-  printf("Hello, World!");
-  return 0;
-}`,
-    "C#": `using System;
-class Program {
-    static void Main() {
-        Console.WriteLine("Hello, World!");
-    }
-}`,
-    "C++": `#include <iostream>
-int main() {
-  std::cout << "Hello, World!";
-  return 0;
-}`,
-    Go: `package main
-import "fmt"
-func main() {
-  fmt.Println("Hello, World!")
-}`,
-    Ruby: `puts "Hello, World!"`,
-    Rust: `fn main() {
-  println!("Hello, World!");
-}`,
-    Swift: `print("Hello, World!")`,
-    Kotlin: `fun main() {
+        }
+    }`,
+    javascript: `console.log("Hello, World!");`,
+    kotlin: `fun main() {
     println("Hello, World!")
-}`,
-    Perl: `print "Hello, World!\\n";`,
-    Scala: `object HelloWorld {
-    def main(args: Array[String]): Unit = {
-        println("Hello, World!")
-    }
-}`,
-    Dart: `void main() {
-  print('Hello, World!');
-}`,
-    Haskell: `main = putStrLn "Hello, World!"`,
-    Elixir: `IO.puts "Hello, World!"`,
-    R: `print("Hello, World!")`,
-    Bash: `echo "Hello, World!"`,
-    PHP: `<?php echo "Hello, World!"; ?>`,
+    }`,
+    perl: `print "Hello, World!\\n";`,
+    php: `<?php echo "Hello, World!"; ?>`,
+    prolog: `write('Hello, World!').`,
+    python: `print("Hello, World!")`,
+    rscript: `cat("Hello, world!\\n")`,
+    ruby: `puts "Hello, World!"`,
+    rust: `fn main() {
+    println!("Hello, World!");
+    }`,
+    swift: `print("Hello, World!")`,
+    typescript: `console.log("Hello, World!");`,
 };
