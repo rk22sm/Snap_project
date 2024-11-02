@@ -182,7 +182,7 @@ Contributions to CodeSnap are welcome! To contribute:
 
 | Environment        | Link                                                       |
 |--------------------|------------------------------------------------------------|
-| Development Server | [codesnap-pro.vercel.app](https://codesnap-pro.vercel.app) |
+| Development Server | [beta.codesnap.pro](https://beta.codesnap.pro)             |
 | Production Server  | [codesnap.pro](https://codesnap.ranitmanik.live)           |
 
 ## Contact
