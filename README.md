@@ -183,7 +183,7 @@ Contributions to CodeSnap are welcome! To contribute:
 | Environment        | Link                                                       |
 |--------------------|------------------------------------------------------------|
 | Development Server | [beta.codesnap.pro](https://beta.codesnap.pro)             |
-| Production Server  | [codesnap.pro](https://codesnap.ranitmanik.live)           |
+| Production Server  | [codesnap.pro](https://www.codesnap.pro)                   |
 
 ## Contact
 
