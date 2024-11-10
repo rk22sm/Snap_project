@@ -19,6 +19,7 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+  snaps         Snap[]
 }
 
 model Account {
@@ -54,4 +55,16 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model Snap {
+  id         String   @id @default(cuid())
+  name       String
+  language   String
+  code       String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  visibility String   @default("private")
+  authorId   String
+  author     User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
 }

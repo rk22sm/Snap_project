@@ -14,10 +14,11 @@ import { Avatar } from "@nextui-org/avatar";
 import { useSession } from "next-auth/react";
 import { Home, LogOut, PlusIcon } from "lucide-react";
 import { toast } from "sonner";
+import { Chip } from "@nextui-org/chip";
 
-import { ThemeSwitch } from "@/components/ui/theme-switch";
-import BrandLogo from "@/components/logo/brand-logo";
-import Logo from "@/components/logo/logo";
+import { ThemeSwitch } from "@/components/theme-switch";
+import BrandLogo from "@/components/brand-logo";
+import Logo from "@/components/logo";
 import { SignOut } from "@/actions";
 
 export default function NavBar() {
@@ -41,8 +42,18 @@ export default function NavBar() {
             <NavbarBrand>
                 <Link className="hover:opacity-1" href="/">
                     <Logo />
-                    <BrandLogo className="ms-2" />
+                    <BrandLogo className="mx-2" />
                 </Link>
+                <Chip size="sm">Starter</Chip>
+                {/*<Chip
+                    classNames={{
+                        base: "bg-gradient-to-br from-indigo-500 to-pink-500",
+                        content: "text-white",
+                    }}
+                    size="sm"
+                >
+                    Premium
+                </Chip>*/}
             </NavbarBrand>
             <NavbarContent as="div" className="items-center" justify="end">
                 <Dropdown placement="bottom-end">

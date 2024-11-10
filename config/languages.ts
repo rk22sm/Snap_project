@@ -1,6 +1,10 @@
 // We are currently supporting total 40 Languages
 
-export const languageOptions = [
+export const languageOptions: Array<{
+    name: string;
+    version: string;
+    imageURL: string;
+}> = [
     {
         name: "bash",
         version: "5.2.0",
@@ -49,19 +53,16 @@ export const languageOptions = [
     {
         name: "elixir",
         version: "1.11.3",
-        aliases: ["elixir", "exs"],
         imageURL: "https://skillicons.dev/icons?i=elixir",
     },
     {
         name: "emacs",
         version: "27.1.0",
-        aliases: ["emacs", "el", "elisp"],
         imageURL: "https://skillicons.dev/icons?i=emacs",
     },
     {
         name: "forth",
         version: "0.7.3",
-        aliases: ["gforth"],
         imageURL: "https://skillicons.dev/icons?i=forth",
     },
     {
@@ -117,13 +118,11 @@ export const languageOptions = [
     {
         name: "ocaml",
         version: "4.12.0",
-        aliases: ["ocaml", "ml"],
         imageURL: "https://skillicons.dev/icons?i=ocaml",
     },
     {
         name: "octave",
         version: "8.1.0",
-        aliases: ["matlab", "m"],
         imageURL: "https://skillicons.dev/icons?i=octave",
     },
     {
@@ -208,7 +207,7 @@ export const languageOptions = [
     },
 ];
 
-export const codeSnaps = {
+export const codeSnaps: { [key: string]: string } = {
     bash: `echo "Hello, World!"`,
     c: `#include <stdio.h>
     int main() {

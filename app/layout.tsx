@@ -7,8 +7,8 @@ import { Analytics } from "@vercel/analytics/react";
 
 import { Providers } from "./providers";
 
-import TopLoader from "@/components/ui/top-loader";
-import CustomToaster from "@/components/ui/custom-toaster";
+import TopLoader from "@/components/top-loader";
+import CustomToaster from "@/components/custom-toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -65,7 +65,7 @@ export default function RootLayout({
                 <Providers
                     themeProps={{
                         attribute: "class",
-                        defaultTheme: "light",
+                        defaultTheme: "dark",
                     }}
                 >
                     <div className="relative min-h-svh">{children}</div>

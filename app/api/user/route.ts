@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { hash } from "bcrypt";
-import { toast } from "sonner";
 
 import { db } from "@/lib/db";
 
@@ -26,11 +25,9 @@ export async function POST(req: Request) {
         const hashedPassword = await hash(password, 10);
 
         if (!hashedPassword) {
-            toast.error("Password Hashing Failed!", {
-                description:
-                    "There was an issue processing your password. Please try again.",
-            });
+            return;
         }
+
         // add new user to the database
         const newUser = await db.user.create({
             data: {

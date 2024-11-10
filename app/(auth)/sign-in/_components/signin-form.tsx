@@ -12,9 +12,9 @@ import { useState } from "react";
 import { EyeFilledIcon, EyeSlashFilledIcon } from "@nextui-org/shared-icons";
 import { Spinner } from "@nextui-org/spinner";
 
-import AccessibleLink from "@/components/ui/accessibleLink";
-import { Google } from "@/components/icon/google";
 import { GoogleSignIn, SignIn } from "@/actions";
+import { GoogleIcon } from "@/components/google-icon";
+import AccessibleLink from "@/components/accessibleLink";
 
 const SignInForm = () => {
     const router = useRouter();
@@ -139,7 +139,7 @@ const SignInForm = () => {
                     authLoading.google ? (
                         <Spinner size="sm" />
                     ) : (
-                        <Google size={20} />
+                        <GoogleIcon size={20} />
                     )
                 }
                 type="button"
