@@ -1,3 +1,5 @@
+"use client";
+
 import {
     Modal,
     ModalContent,
@@ -11,53 +13,80 @@ import { PlusIcon } from "lucide-react";
 import { Input } from "@nextui-org/input";
 import { RadioGroup } from "@nextui-org/radio";
 import { cn } from "@nextui-org/theme";
-import { toast } from "sonner";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Autocomplete, AutocompleteItem } from "@nextui-org/autocomplete";
 import { Image } from "@nextui-org/image";
+import { useSession } from "next-auth/react";
+import { toast } from "sonner";
+import { useState } from "react";
+import { Spinner } from "@nextui-org/spinner";
+import { useRouter } from "next/navigation";
 
-import { languageOptions } from "@/config/languages";
-import { CustomRadio } from "@/components/ui/custom-radio";
+import { codeSnaps, languageOptions } from "@/config/languages";
+import { CustomRadio } from "@/components/custom-radio";
+import { CreateSnippet } from "@/actions";
 
 export default function CreateSnap({ isMobile }: { isMobile: boolean }) {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
+    const { data: session } = useSession();
+    const [isLoading, setIsLoading] = useState(false);
+    const router = useRouter();
 
     const FormSchema = z.object({
-        language: z.string().min(1, "Language is required"),
         snapName: z
             .string()
             .min(1, "Snap Name is required")
             .max(20, "Snap Name must be less than 20 characters")
             .regex(
-                /^[a-zA-Z0-9_.]+$/,
-                "Snap Names can only include letters, numbers, underscores (_), and periods (.). No spaces or special characters allowed.",
+                /^[a-zA-Z0-9_. ]+$/,
+                "Snap Names can only include letters, numbers, Blank spaces ( ), underscores (_), and periods (.).",
             ),
+        language: z.string().min(1, "Language is required"),
         visibility: z.string().min(1, "Visibility is required"),
     });
 
     const form = useForm<z.infer<typeof FormSchema>>({
         resolver: zodResolver(FormSchema),
         defaultValues: {
-            language: "",
             snapName: "",
+            language: "",
             visibility: "",
         },
     });
 
-    const onSubmit = async (values: z.infer<typeof FormSchema>) => {
-        const promise = new Promise<{ name: string }>((resolve) =>
-            setTimeout(() => resolve({ name: values.snapName }), 2000),
-        );
+    // find code snippets from language name
+    function getCodeByLanguageName(name: string) {
+        return codeSnaps[name] || "";
+    }
 
-        toast.promise(promise, {
-            loading: "Loading...",
-            success: (data: { name: string }) => {
-                return `${data.name} snap is created`;
-            },
-            error: "Error",
-        });
+    const onSubmit = async (values: z.infer<typeof FormSchema>) => {
+        try {
+            setIsLoading(true);
+            const userId = session?.user?.id;
+
+            const code = getCodeByLanguageName(values.language);
+
+            const response = await CreateSnippet(values, userId, code);
+
+            if (response?.snap) {
+                toast.success("snap created");
+
+                form.reset();
+                onOpenChange();
+
+                router.push(`/snap/${response.snap.id}`);
+            } else {
+                toast.error("Failed creating snap. Try again later.");
+            }
+        } catch (error) {
+            toast.error(
+                "An unexpected error occurred. Please try again later.",
+            );
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     const handleModalClose = () => {
@@ -75,6 +104,8 @@ export default function CreateSnap({ isMobile }: { isMobile: boolean }) {
                 <span className="hidden sm:flex">Create Snap</span>
             </Button>
             <Modal
+                hideCloseButton={isLoading}
+                isDismissable={!isLoading}
                 isOpen={isOpen}
                 placement="top"
                 onClose={handleModalClose}
@@ -91,6 +122,7 @@ export default function CreateSnap({ isMobile }: { isMobile: boolean }) {
                                 errorMessage={
                                     form.formState.errors.language?.message
                                 }
+                                isDisabled={isLoading}
                                 isInvalid={!!form.formState.errors.language}
                                 label="Select Language"
                                 placeholder="Search for a programming language"
@@ -124,6 +156,7 @@ export default function CreateSnap({ isMobile }: { isMobile: boolean }) {
                                 errorMessage={
                                     form.formState.errors.snapName?.message
                                 }
+                                isDisabled={isLoading}
                                 isInvalid={!!form.formState.errors.snapName}
                                 label="Snap Name"
                                 placeholder="Give your snap a descriptive name"
@@ -146,6 +179,7 @@ export default function CreateSnap({ isMobile }: { isMobile: boolean }) {
                                 errorMessage={
                                     form.formState.errors.visibility?.message
                                 }
+                                isDisabled={isLoading}
                                 isInvalid={!!form.formState.errors.visibility}
                                 orientation="horizontal"
                                 size="sm"
@@ -174,10 +208,17 @@ export default function CreateSnap({ isMobile }: { isMobile: boolean }) {
                             <Button
                                 fullWidth
                                 color="primary"
-                                startContent={<PlusIcon size={16} />}
+                                isDisabled={isLoading}
+                                startContent={
+                                    !isLoading && <PlusIcon size={16} />
+                                }
                                 type="submit"
                             >
-                                Create Snap
+                                {isLoading ? (
+                                    <Spinner color="current" size="sm" />
+                                ) : (
+                                    "Create Snap"
+                                )}
                             </Button>
                         </ModalFooter>
                     </form>

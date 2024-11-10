@@ -42,4 +42,4 @@ package-lock.json
 /prisma/dev.db
 /prisma/dev.db-journal
 /bun.lockb
-.env*.local
+.env

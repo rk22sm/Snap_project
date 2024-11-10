@@ -12,8 +12,8 @@ import { useState } from "react";
 import { EyeFilledIcon, EyeSlashFilledIcon } from "@nextui-org/shared-icons";
 import { Spinner } from "@nextui-org/spinner";
 
-import AccessibleLink from "@/components/ui/accessibleLink";
-import { Google } from "@/components/icon/google";
+import AccessibleLink from "@/components/accessibleLink";
+import { GoogleIcon } from "@/components/google-icon";
 import { SignUp, GoogleSignIn } from "@/actions";
 
 const SignUpForm = () => {
@@ -151,7 +151,7 @@ const SignUpForm = () => {
                     authLoading.google ? (
                         <Spinner size="sm" />
                     ) : (
-                        <Google size={20} />
+                        <GoogleIcon size={20} />
                     )
                 }
                 variant="ghost"

@@ -1,32 +1,46 @@
 import { Card, CardHeader, CardFooter } from "@nextui-org/card";
 import { Image } from "@nextui-org/image";
 import { Divider } from "@nextui-org/divider";
+import { Link } from "@nextui-org/link";
 
 import CardMenu from "@/app/(dashboard)/_components/card-menu";
+import { languageOptions } from "@/config/languages";
 
 interface SnapInfoCardProps {
     title: string;
     language: string;
     createdAt: string;
+    id: string;
 }
 
 export default function SnapInfoCard({
     title,
     language,
     createdAt,
+    id,
 }: SnapInfoCardProps) {
+    function getImageUrlByLanguage(languageName: string) {
+        const language = languageOptions.find(
+            (lang) => lang.name === languageName,
+        );
+
+        return language ? language.imageURL : "/logo.svg";
+    }
+
     return (
         <Card
             isHoverable
             isPressable
+            as={Link}
             className="border border-transparent hover:border-foreground-400"
+            href={`/snap/${id}`}
         >
             <CardHeader className="flex justify-between gap-3">
                 <div className="flex items-center gap-3">
                     <Image
                         height={45}
                         radius="sm"
-                        src={`https://skillicons.dev/icons?i=${language.toLowerCase()}`}
+                        src={getImageUrlByLanguage(language)}
                         width={45}
                     />
                     <div className="flex flex-col text-left">
