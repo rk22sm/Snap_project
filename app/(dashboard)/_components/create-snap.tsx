@@ -1,3 +1,5 @@
+"use client";
+
 import {
     Modal,
     ModalContent,
@@ -20,6 +22,7 @@ import { useSession } from "next-auth/react";
 import { toast } from "sonner";
 import { useState } from "react";
 import { Spinner } from "@nextui-org/spinner";
+import { useRouter } from "next/navigation";
 
 import { codeSnaps, languageOptions } from "@/config/languages";
 import { CustomRadio } from "@/components/custom-radio";
@@ -29,6 +32,7 @@ export default function CreateSnap({ isMobile }: { isMobile: boolean }) {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
     const { data: session } = useSession();
     const [isLoading, setIsLoading] = useState(false);
+    const router = useRouter();
 
     const FormSchema = z.object({
         snapName: z
@@ -66,11 +70,13 @@ export default function CreateSnap({ isMobile }: { isMobile: boolean }) {
 
             const response = await CreateSnippet(values, userId, code);
 
-            if (response?.ok) {
+            if (response?.snap) {
                 toast.success("snap created");
 
                 form.reset();
                 onOpenChange();
+
+                router.push(`/snap/${response.snap.id}`);
             } else {
                 toast.error("Failed creating snap. Try again later.");
             }

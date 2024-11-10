@@ -9,13 +9,13 @@ import {
     ResizablePanelGroup,
 } from "@/components/resizable";
 import CodeEditor from "@/app/(dashboard)/snap/[id]/_components/CodeEditor";
-import { db } from "@/lib/db";
 import { languageOptions } from "@/config/languages";
 import { authOptions } from "@/lib/auth";
+import { GetSnippet } from "@/actions";
 
 export default async function page({ params }: { params: { id: string } }) {
     const session = await getServerSession(authOptions);
-    const snap = await db.snap.findUnique({ where: { id: params.id } });
+    const snap = await GetSnippet(params.id);
 
     // if there is no snap
     if (!session) {

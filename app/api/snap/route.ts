@@ -15,16 +15,6 @@ export async function POST(req: Request) {
             );
         }
 
-        const user = await db.user.findUnique({ where: { id: userId } });
-
-        // Check if user exists
-        if (!user) {
-            return NextResponse.json(
-                { message: "User does not exist" },
-                { status: 400 },
-            );
-        }
-
         // Create new snap in the database
         const newSnap = await db.snap.create({
             data: {

@@ -5,15 +5,13 @@ import ControlPanel from "@/app/(dashboard)/_components/control-panel";
 import SnapInfoCard from "@/app/(dashboard)/_components/snap-info-card";
 import NavBar from "@/app/(dashboard)/_components/nav-bar";
 import { CommandMenu } from "@/components/command-menu";
-import { db } from "@/lib/db";
 import { authOptions } from "@/lib/auth";
+import { GetSnippets } from "@/actions";
 
 export default async function Page() {
     const session = await getServerSession(authOptions);
 
-    const SnapData = await db.snap.findMany({
-        where: { authorId: session?.user.id },
-    });
+    const SnapData = await GetSnippets(session?.user.id);
 
     return (
         <div className="space-y-6">
