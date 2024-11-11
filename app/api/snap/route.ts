@@ -38,5 +38,7 @@ export async function POST(req: Request) {
             { message: "An error occurred" },
             { status: 500 },
         );
+    } finally {
+        db.$disconnect();
     }
 }

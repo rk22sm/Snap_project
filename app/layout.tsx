@@ -74,7 +74,7 @@ export default function RootLayout({
                 <Analytics />
                 {/* Vercel Speed Insights for Page Speed Analysis */}
                 <SpeedInsights />
-                {/* NextJs TopLoader for loading animation */}
+                {/* TopLoader for loading animation */}
                 <TopLoader />
                 {/* Toast notifications for user feedback */}
                 <CustomToaster />

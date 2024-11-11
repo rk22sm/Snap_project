@@ -4,7 +4,7 @@ import { Editor, EditorProps } from "@monaco-editor/react";
 import { useTheme } from "next-themes";
 import { useRef } from "react";
 
-import CodeEditorSkeleton from "@/app/(dashboard)/snap/[id]/_components/CodeEditorSkeleton";
+import CodeEditorSkeleton from "@/app/(dashboard)/snap/[id]/_components/code-editor-skeleton";
 
 export default function CodeEditor(props: EditorProps) {
     const { theme } = useTheme();

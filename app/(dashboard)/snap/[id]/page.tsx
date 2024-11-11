@@ -8,10 +8,11 @@ import {
     ResizablePanel,
     ResizablePanelGroup,
 } from "@/components/resizable";
-import CodeEditor from "@/app/(dashboard)/snap/[id]/_components/CodeEditor";
+import CodeEditor from "@/app/(dashboard)/snap/[id]/_components/code-editor";
 import { languageOptions } from "@/config/languages";
 import { authOptions } from "@/lib/auth";
 import { GetSnippet } from "@/actions";
+import { BackButton } from "@/app/(dashboard)/snap/[id]/_components/back-button";
 
 export default async function page({ params }: { params: { id: string } }) {
     const session = await getServerSession(authOptions);
@@ -38,7 +39,7 @@ export default async function page({ params }: { params: { id: string } }) {
         );
     }
 
-    function getImageUrlByLanguage(languageName: string) {
+    function getImageUrlByLanguageName(languageName: string) {
         const language = languageOptions.find(
             (lang) => lang.name === languageName,
         );
@@ -46,15 +47,24 @@ export default async function page({ params }: { params: { id: string } }) {
         return language ? language.imageURL : "/logo.svg";
     }
 
+    function getMonacoEditorLangByLanguageName(languageName: string) {
+        const language = languageOptions.find(
+            (lang) => lang.name === languageName,
+        );
+
+        return language?.monacoEditorLang;
+    }
+
     return (
         <ResizablePanelGroup direction="horizontal">
             <ResizablePanel className="h-svh" defaultSize={50} minSize={40}>
                 <div className="flex h-12 items-center justify-between border-b border-content3 bg-content2 px-6">
                     <div className="flex select-none gap-3">
+                        <BackButton />
                         <Image
                             height={25}
                             radius="sm"
-                            src={getImageUrlByLanguage(language)}
+                            src={getImageUrlByLanguageName(language)}
                             width={25}
                         />
                         <h1 className="line-clamp-1 max-w-60">{name}</h1>
@@ -69,9 +79,7 @@ export default async function page({ params }: { params: { id: string } }) {
                     </Button>
                 </div>
                 <CodeEditor
-                    defaultLanguage={language}
-                    defaultValue={code}
-                    language={language}
+                    language={getMonacoEditorLangByLanguageName(language)}
                     value={code}
                 />
             </ResizablePanel>

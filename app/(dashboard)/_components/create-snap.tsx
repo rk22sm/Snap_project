@@ -20,19 +20,27 @@ import { Autocomplete, AutocompleteItem } from "@nextui-org/autocomplete";
 import { Image } from "@nextui-org/image";
 import { useSession } from "next-auth/react";
 import { toast } from "sonner";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Spinner } from "@nextui-org/spinner";
-import { useRouter } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
+import NProgress from "nprogress";
 
 import { codeSnaps, languageOptions } from "@/config/languages";
 import { CustomRadio } from "@/components/custom-radio";
 import { CreateSnippet } from "@/actions";
+import { usePRouter } from "@/components/custom-router";
 
 export default function CreateSnap({ isMobile }: { isMobile: boolean }) {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
     const { data: session } = useSession();
     const [isLoading, setIsLoading] = useState(false);
-    const router = useRouter();
+    const router = usePRouter();
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
+
+    useEffect(() => {
+        NProgress.done();
+    }, [pathname, searchParams]);
 
     const FormSchema = z.object({
         snapName: z
