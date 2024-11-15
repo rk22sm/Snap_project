@@ -1,10 +1,12 @@
+"use client";
+
 import { Card, CardHeader, CardFooter } from "@nextui-org/card";
 import { Image } from "@nextui-org/image";
 import { Divider } from "@nextui-org/divider";
-import { Link } from "@nextui-org/link";
 
 import CardMenu from "@/app/(dashboard)/_components/card-menu";
 import { languageOptions } from "@/config/languages";
+import { usePRouter } from "@/components/custom-router";
 
 interface SnapInfoCardProps {
     title: string;
@@ -19,6 +21,8 @@ export default function SnapInfoCard({
     createdAt,
     id,
 }: SnapInfoCardProps) {
+    const router = usePRouter();
+
     function getImageUrlByLanguage(languageName: string) {
         const language = languageOptions.find(
             (lang) => lang.name === languageName,
@@ -31,9 +35,8 @@ export default function SnapInfoCard({
         <Card
             isHoverable
             isPressable
-            as={Link}
             className="border border-transparent hover:border-foreground-400"
-            href={`/snap/${id}`}
+            onPress={() => router.push(`/snap/${id}`)}
         >
             <CardHeader className="flex justify-between gap-3">
                 <div className="flex items-center gap-3">

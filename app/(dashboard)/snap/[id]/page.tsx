@@ -1,6 +1,4 @@
 import { Image } from "@nextui-org/image";
-import { Button } from "@nextui-org/button";
-import { Play } from "lucide-react";
 import { getServerSession } from "next-auth";
 
 import {
@@ -13,23 +11,27 @@ import { languageOptions } from "@/config/languages";
 import { authOptions } from "@/lib/auth";
 import { GetSnippet } from "@/actions";
 import { BackButton } from "@/app/(dashboard)/snap/[id]/_components/back-button";
+import RunButton from "@/app/(dashboard)/snap/[id]/_components/run-button";
+import OutputArea from "@/app/(dashboard)/snap/[id]/_components/output-area";
 
 export default async function page({ params }: { params: { id: string } }) {
     const session = await getServerSession(authOptions);
     const snap = await GetSnippet(params.id);
 
-    // if there is no snap
+    // if the user is not logged in
     if (!session) {
         return <div>Sign in First</div>;
     }
 
+    // if there is no snap
     if (!snap) {
         return <div>no snaps found</div>;
     }
 
-    // if snap is there then
+    // if everything is fine
     const { name, language, code, authorId, visibility } = snap;
 
+    // check if the user is the owner of the snap or snap is public
     if (!(session?.user?.id === authorId || visibility === "public")) {
         return (
             <div>
@@ -55,6 +57,14 @@ export default async function page({ params }: { params: { id: string } }) {
         return language?.monacoEditorLang;
     }
 
+    function getLanguageVersionByLanguageName(languageName: string) {
+        const language = languageOptions.find(
+            (lang) => lang.name === languageName,
+        );
+
+        return language?.version;
+    }
+
     return (
         <ResizablePanelGroup direction="horizontal">
             <ResizablePanel className="h-svh" defaultSize={50} minSize={40}>
@@ -67,28 +77,26 @@ export default async function page({ params }: { params: { id: string } }) {
                             src={getImageUrlByLanguageName(language)}
                             width={25}
                         />
-                        <h1 className="line-clamp-1 max-w-60">{name}</h1>
+                        <h1 className="line-clamp-1 max-w-60 text-lg">
+                            {name}
+                        </h1>
                     </div>
-                    <Button
-                        className="text-sm font-semibold text-white"
-                        color="success"
-                        size="sm"
-                        startContent={<Play fill="currentColor" size={16} />}
-                    >
-                        Run
-                    </Button>
+                    <RunButton />
                 </div>
                 <CodeEditor
+                    initialCode={code}
                     language={getMonacoEditorLangByLanguageName(language)}
-                    value={code}
+                    version={getLanguageVersionByLanguageName(language)}
                 />
             </ResizablePanel>
             <ResizableHandle withHandle />
             <ResizablePanel className="h-svh" defaultSize={50}>
                 <div className="flex h-12 select-none items-center border-b border-content3 bg-content2 px-6">
-                    <h2>Output</h2>
+                    <h2 className="text-lg">Output</h2>
                 </div>
-                <div className="h-full bg-content1" />
+                <div className="h-full bg-content1 p-4">
+                    <OutputArea />
+                </div>
             </ResizablePanel>
         </ResizablePanelGroup>
     );
