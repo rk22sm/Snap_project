@@ -13,12 +13,6 @@ export const languageOptions: Array<{
         monacoEditorLang: "shell",
     },
     {
-        name: "basic.net",
-        version: "5.0.201",
-        imageURL: "https://skillicons.dev/icons?i=dotnet",
-        monacoEditorLang: "basic",
-    },
-    {
         name: "c",
         version: "10.2.0",
         imageURL: "https://skillicons.dev/icons?i=c",
@@ -83,6 +77,12 @@ export const languageOptions: Array<{
         version: "10.2.0",
         imageURL: "https://skillicons.dev/icons?i=fortran",
         monacoEditorLang: "fortran",
+    },
+    {
+        name: "fsharp.net",
+        version: "5.0.201",
+        imageURL: "https://skillicons.dev/icons?i=dotnet",
+        monacoEditorLang: "fsharp",
     },
     {
         name: "go",
@@ -250,11 +250,6 @@ export const languageOptions: Array<{
 
 export const codeSnaps: { [key: string]: string } = {
     bash: `echo "Hello, World!"`,
-    "basic.net": `Module Program
-    Sub Main()
-        Console.WriteLine("Hello, World!")
-    End Sub
-    End Module`,
     c: `#include <stdio.h>
     int main() {
       printf("Hello, World!\\n");
@@ -283,6 +278,13 @@ export const codeSnaps: { [key: string]: string } = {
     fortran: `program hello
         print *, "Hello, World!"
     end program hello`,
+    "fsharp.net": `open System
+    
+    [<EntryPoint>]
+    let main argv =
+        Console.WriteLine("Hello World!")
+        0
+    `,
     go: `package main
     import "fmt"
     func main() {

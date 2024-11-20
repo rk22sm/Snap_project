@@ -23,7 +23,7 @@ export default async function Page() {
                     <Folder className="fill-foreground" />
                     <h1>Snaps</h1>
                 </div>
-                <div className="m-auto grid grid-cols-[repeat(auto-fill,minmax(330px,1fr))] gap-4 lg:gap-6 xl:gap-8">
+                <div className="m-auto grid grid-cols-[repeat(auto-fill,minmax(330px,1fr))] gap-4 pb-8 lg:gap-6 xl:gap-8">
                     {SnapData &&
                         SnapData.map((snap, index) => (
                             <SnapInfoCard
