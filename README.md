@@ -3,9 +3,9 @@
   <h1>CodeSnap – Create, Run & Share Code Snippets</h1>
   <a href="https://codesnap.pro/">View Demo</a>
   ·
-  <a href=".github/ISSUE_TEMPLATE/bug_report.md">Report Bug</a>
+  <a href="https://github.com/RanitManik/CodeSnap/issues/new?assignees=&labels=&projects=&template=bug_report.yml&title=">Report Bug</a>
   ·
-  <a href=".github/ISSUE_TEMPLATE/feature_request.md">Request Feature</a>
+  <a href="https://github.com/RanitManik/CodeSnap/issues/new?assignees=&labels=&projects=&template=feature_request.yml&title=">Request Feature</a>
   <br/>  
   <br/>
 
