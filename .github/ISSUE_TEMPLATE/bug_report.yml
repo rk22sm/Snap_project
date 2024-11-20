@@ -6,11 +6,9 @@ body:
       value: |
         Hello! :sparkles: You found the place to submit a bug or issue that you discovered in CodeSnap, thank you for helping us out!
 
-        Having trouble making something work in CodeSnap, but it’s not a bug with the platform itself? You’ll get the fastest response by asking in our [GitHub discussions](https://github.com/codesnap/codesnap/discussions) or our [Discord server](https://discord.gg/example).
+        Having trouble making something work in CodeSnap, but it’s not a bug with the platform itself? You’ll get the fastest response by asking in our [GitHub discussions](https://github.com/RanitManik/codesnap/discussions).
 
-        **Search our [discussions](https://github.com/codesnap/codesnap/discussions?discussions_q=) and [issues](https://github.com/codesnap/codesnap/issues?q=)** to see if your problem has already been reported and you can add more context, or see if someone else has already solved your issue. And of course, check our [docs](https://codesnap.dev/docs) if you haven’t already.
-
-        **Issue with the CodeSnap Docs?** Submit an issue in our [web repo](https://github.com/codesnap/web/issues) instead.
+        **Search our [discussions](https://github.com/RanitManik/codesnap/discussions?discussions_q=) and [issues](https://github.com/RanitManik/codesnap/issues?q=)** to see if your problem has already been reported and you can add more context, or see if someone else has already solved your issue.
 
         With that out of the way, let’s get started :bug:
   - type: textarea
@@ -32,7 +30,7 @@ body:
         This is the most important part of the bug report!
 
         If possible, provide a link to a CodeSnap code snippet or project where the issue can be reproduced.
-      placeholder: https://codesnap.dev/snippet/... or GitHub Repo
+      placeholder: https://codesnap.pro/snippet/... or GitHub Repo
     validations:
       required: false
   - type: textarea
