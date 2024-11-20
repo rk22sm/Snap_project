@@ -69,7 +69,12 @@ const SignUpForm = () => {
     const signInWithGoogleOnClickHandler = async () => {
         try {
             setAuthLoading((prev) => ({ ...prev, google: true }));
-            await GoogleSignIn();
+            const response = await GoogleSignIn();
+
+            if (response?.error) {
+                toast.error("");
+                setAuthLoading((prev) => ({ ...prev, google: false }));
+            }
         } catch (error) {
             setAuthLoading((prev) => ({ ...prev, google: false }));
             toast.error(
