@@ -3,7 +3,7 @@ import { getServerSession } from "next-auth";
 
 import ControlPanel from "@/app/(dashboard)/_components/control-panel";
 import SnapInfoCard from "@/app/(dashboard)/_components/snap-info-card";
-import NavBar from "@/app/(dashboard)/_components/nav-bar";
+import DashboardNavBar from "@/app/(dashboard)/_components/dashboard-nav-bar";
 import { CommandMenu } from "@/components/command-menu";
 import { authOptions } from "@/lib/auth";
 import { GetSnippets } from "@/actions";
@@ -15,7 +15,7 @@ export default async function Page() {
 
     return (
         <div className="space-y-6">
-            <NavBar />
+            <DashboardNavBar />
             <ControlPanel />
             <CommandMenu />
             <main className="m-auto max-w-screen-xl space-y-4 px-6">

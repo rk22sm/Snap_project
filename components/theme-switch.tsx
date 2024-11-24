@@ -11,11 +11,13 @@ import { Moon, Sun } from "lucide-react";
 export interface ThemeSwitchProps {
     className?: string;
     classNames?: SwitchProps["classNames"];
+    size?: number;
 }
 
 export const ThemeSwitch: FC<ThemeSwitchProps> = ({
     className,
     classNames,
+    size,
 }) => {
     const { theme, setTheme } = useTheme();
     const isSSR = useIsSSR();
@@ -41,7 +43,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
         <Component
             {...getBaseProps({
                 className: clsx(
-                    "px-px transition-opacity hover:opacity-80 cursor-pointer",
+                    "px-px cursor-pointer",
                     className,
                     classNames?.base,
                 ),
@@ -60,7 +62,8 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
                             "rounded-lg",
                             "flex items-center justify-center",
                             "group-data-[selected=true]:bg-transparent",
-                            "!text-default-500",
+                            "group-data-[selected=true]:text-default-500",
+                            "group-data-[hover=true]:text-foreground",
                             "pt-px",
                             "px-0",
                             "mx-0",
@@ -69,7 +72,11 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
                     ),
                 })}
             >
-                {!isSelected || isSSR ? <Sun size={16} /> : <Moon size={16} />}
+                {!isSelected || isSSR ? (
+                    <Sun size={size || 16} />
+                ) : (
+                    <Moon size={size || 16} />
+                )}
             </div>
         </Component>
     );
