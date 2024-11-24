@@ -40,7 +40,7 @@ export default function RunButton() {
     return (
         <>
             <Button
-                className="text-sm font-semibold text-white"
+                className="h-8 justify-self-center text-sm font-semibold text-white"
                 color="success"
                 isDisabled={loading}
                 size="sm"

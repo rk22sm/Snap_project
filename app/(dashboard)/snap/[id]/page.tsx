@@ -1,4 +1,3 @@
-import { Image } from "@nextui-org/image";
 import { getServerSession } from "next-auth";
 
 import {
@@ -10,9 +9,11 @@ import CodeEditor from "@/app/(dashboard)/snap/[id]/_components/code-editor";
 import { languageOptions } from "@/config/languages";
 import { authOptions } from "@/lib/auth";
 import { GetSnippet } from "@/actions";
-import { BackButton } from "@/app/(dashboard)/snap/[id]/_components/back-button";
+import { BackToHomeButton } from "@/app/(dashboard)/snap/[id]/_components/back-to-home-button";
 import RunButton from "@/app/(dashboard)/snap/[id]/_components/run-button";
 import OutputArea from "@/app/(dashboard)/snap/[id]/_components/output-area";
+import SnapInfoButton from "@/app/(dashboard)/snap/[id]/_components/snap-info-button";
+import { NavMenu } from "@/components/nav-menu";
 
 export default async function page({ params }: { params: { id: string } }) {
     const session = await getServerSession(authOptions);
@@ -66,38 +67,44 @@ export default async function page({ params }: { params: { id: string } }) {
     }
 
     return (
-        <ResizablePanelGroup direction="horizontal">
-            <ResizablePanel className="h-svh" defaultSize={50} minSize={40}>
-                <div className="flex h-12 items-center justify-between border-b border-content3 bg-content2 px-6">
-                    <div className="flex select-none gap-3">
-                        <BackButton />
-                        <Image
-                            height={25}
-                            radius="sm"
-                            src={getImageUrlByLanguageName(language)}
-                            width={25}
-                        />
-                        <h1 className="line-clamp-1 max-w-60 text-lg">
-                            {name}
-                        </h1>
+        <>
+            <nav className="grid w-full grid-cols-3 items-center justify-between border-b border-content3 bg-content2 px-4 py-2">
+                <div className="flex select-none items-center">
+                    <BackToHomeButton />
+                    <SnapInfoButton
+                        imgURL={getImageUrlByLanguageName(language)}
+                        snapName={name}
+                    />
+                </div>
+                <RunButton />
+                <div className="flex h-full items-center justify-end">
+                    {/*<ThemeSwitch size={20} />*/}
+                    <NavMenu size={24} />
+                </div>
+            </nav>
+            <ResizablePanelGroup direction="horizontal">
+                <ResizablePanel
+                    className="h-[calc(100svh-50px)]"
+                    defaultSize={50}
+                    minSize={40}
+                >
+                    <CodeEditor
+                        initialCode={code}
+                        language={getMonacoEditorLangByLanguageName(language)}
+                        version={getLanguageVersionByLanguageName(language)}
+                    />
+                </ResizablePanel>
+                <ResizableHandle withHandle />
+                <ResizablePanel
+                    className="h-[calc(100svh-50px)]"
+                    defaultSize={50}
+                    minSize={40}
+                >
+                    <div className="h-full bg-content1 p-4">
+                        <OutputArea />
                     </div>
-                    <RunButton />
-                </div>
-                <CodeEditor
-                    initialCode={code}
-                    language={getMonacoEditorLangByLanguageName(language)}
-                    version={getLanguageVersionByLanguageName(language)}
-                />
-            </ResizablePanel>
-            <ResizableHandle withHandle />
-            <ResizablePanel className="h-svh" defaultSize={50}>
-                <div className="flex h-12 select-none items-center border-b border-content3 bg-content2 px-6">
-                    <h2 className="text-lg">Output</h2>
-                </div>
-                <div className="h-full bg-content1 p-4">
-                    <OutputArea />
-                </div>
-            </ResizablePanel>
-        </ResizablePanelGroup>
+                </ResizablePanel>
+            </ResizablePanelGroup>
+        </>
     );
 }

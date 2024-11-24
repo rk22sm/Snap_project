@@ -48,8 +48,8 @@ export default function CreateSnap({ isMobile }: { isMobile: boolean }) {
             .min(1, "Snap Name is required")
             .max(20, "Snap Name must be less than 20 characters")
             .regex(
-                /^[a-zA-Z0-9_. ]+$/,
-                "Snap Names can only include letters, numbers, Blank spaces ( ), underscores (_), and periods (.).",
+                /^[a-zA-Z0-9-.]+$/,
+                "Snap Names can only include letters, numbers, underscores (-), hyphen (-), and periods (.).",
             ),
         language: z.string().min(1, "Language is required"),
         visibility: z.string().min(1, "Visibility is required"),
