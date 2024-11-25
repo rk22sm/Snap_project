@@ -6,16 +6,19 @@ import { useCodeStore } from "@/stores";
 import OutputAreaSkeleton from "@/app/(dashboard)/snap/[id]/_components/output-area-skeleton";
 
 export default function OutputArea() {
-    const { loading, output } = useCodeStore();
+    const { output, error, running, editorLoading } = useCodeStore();
 
-    if (loading) return <OutputAreaSkeleton />;
+    if (running) return <p>Running...</p>;
 
+    if (editorLoading) return <OutputAreaSkeleton />;
+
+    // TODO: Reserve history for output and give remove history functionality
     return (
         <div className="relative h-full w-full">
             {output.length !== 0 ? (
                 <div className="flex gap-2">
                     <span className="text-yellow-500">$</span>
-                    <div>
+                    <div className={error ? "text-danger" : ""}>
                         {output.map((item) => {
                             return (
                                 <span key={item} className="block">

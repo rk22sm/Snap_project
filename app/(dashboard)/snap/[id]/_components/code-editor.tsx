@@ -2,10 +2,11 @@
 
 import { Editor } from "@monaco-editor/react";
 import { useTheme } from "next-themes";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import { editor } from "monaco-editor";
 
 import CodeEditorSkeleton from "@/app/(dashboard)/snap/[id]/_components/code-editor-skeleton";
-import { useCodeStore } from "@/stores/code-store";
+import { useCodeStore } from "@/stores";
 
 export default function CodeEditor({
     initialCode,
@@ -17,15 +18,22 @@ export default function CodeEditor({
     version?: string;
 }) {
     const { theme } = useTheme();
-    const editorRef = useRef(null);
-    const { code, setCode, setLanguage, setOutput } = useCodeStore();
+    const editorRef = useRef<editor.IStandaloneCodeEditor | null>(null);
+    const { code, setCode, setLanguage, setOutput, setEditorLoading } =
+        useCodeStore();
 
-    function handleEditorDidMount(editor: any) {
+    useEffect(() => {
+        setOutput([]);
+    }, []);
+
+    function handleEditorDidMount(editor: editor.IStandaloneCodeEditor) {
+        console.log("Editor mounted");
         editorRef.current = editor;
         editor.focus();
         setCode(initialCode || "");
         setLanguage({ name: language || "", version: version || "" });
-        setOutput([]);
+        setEditorLoading(false);
+        console.log("Editor loading state set to false");
     }
 
     function handleOnchange(value: string | undefined) {

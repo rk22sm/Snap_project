@@ -27,10 +27,10 @@ import NProgress from "nprogress";
 
 import { codeSnaps, languageOptions } from "@/config/languages";
 import { CustomRadio } from "@/components/custom-radio";
-import { CreateSnippet } from "@/actions";
+import { CreateSnap } from "@/actions";
 import { usePRouter } from "@/components/custom-router";
 
-export default function CreateSnap({ isMobile }: { isMobile: boolean }) {
+export default function CreateSnapModal({ isMobile }: { isMobile: boolean }) {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
     const { data: session } = useSession();
     const [isLoading, setIsLoading] = useState(false);
@@ -70,30 +70,33 @@ export default function CreateSnap({ isMobile }: { isMobile: boolean }) {
     }
 
     const onSubmit = async (values: z.infer<typeof FormSchema>) => {
+        setIsLoading(true);
+        const userId = session?.user?.id;
+
+        const code = getCodeByLanguageName(values.language);
+        let response;
+
         try {
-            setIsLoading(true);
-            const userId = session?.user?.id;
-
-            const code = getCodeByLanguageName(values.language);
-
-            const response = await CreateSnippet(values, userId, code);
-
-            if (response?.snap) {
-                toast.success("snap created");
-
-                form.reset();
-                onOpenChange();
-
-                router.push(`/snap/${response.snap.id}`);
-            } else {
-                toast.error("Failed creating snap. Try again later.");
-            }
+            response = await CreateSnap(values, userId, code);
         } catch (error) {
             toast.error(
                 "An unexpected error occurred. Please try again later.",
             );
+
+            return;
         } finally {
             setIsLoading(false);
+        }
+
+        if (response?.snap) {
+            toast.success("snap created");
+
+            form.reset();
+            onOpenChange();
+
+            router.push(`/snap/${response.snap.id}`);
+        } else {
+            toast.error("Failed creating snap. Try again later.");
         }
     };
 

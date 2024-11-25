@@ -9,7 +9,7 @@ import {
 } from "@nextui-org/dropdown";
 import { Avatar } from "@nextui-org/avatar";
 import { User } from "@nextui-org/user";
-import { Home, LayoutDashboardIcon, LogOut, Settings } from "lucide-react";
+import { Home, LogOut, PlusIcon } from "lucide-react";
 import { useSession } from "next-auth/react";
 import { toast } from "sonner";
 
@@ -59,6 +59,7 @@ export const NavMenu = ({ size }: { size?: number }) => {
                     >
                         <User
                             avatarProps={{
+                                size: "sm",
                                 src: `${session?.user?.image}`,
                                 showFallback: true,
                             }}
@@ -72,24 +73,28 @@ export const NavMenu = ({ size }: { size?: number }) => {
                     </DropdownItem>
                     <DropdownItem
                         key="dashboard"
-                        endContent={
-                            <LayoutDashboardIcon
-                                className={iconClasses}
-                                size={16}
-                            />
-                        }
                         onClick={() => router.push("/")}
                     >
                         Dashboard
                     </DropdownItem>
                     <DropdownItem
                         key="settings"
-                        endContent={
-                            <Settings className={iconClasses} size={16} />
-                        }
                         onClick={() => router.push("/settings")}
                     >
                         Settings
+                    </DropdownItem>
+                    <DropdownItem
+                        key="new_project"
+                        endContent={
+                            <PlusIcon className={iconClasses} size={16} />
+                        }
+                    >
+                        New Snap
+                    </DropdownItem>
+                </DropdownSection>
+                <DropdownSection showDivider aria-label="Preferences">
+                    <DropdownItem key="command_menu" shortcut="⌘K">
+                        Command Menu
                     </DropdownItem>
                     <DropdownItem
                         key="theme"
@@ -100,7 +105,6 @@ export const NavMenu = ({ size }: { size?: number }) => {
                         Theme
                     </DropdownItem>
                 </DropdownSection>
-
                 <DropdownSection showDivider aria-label="Home & Logout">
                     <DropdownItem
                         key="home"
@@ -119,7 +123,6 @@ export const NavMenu = ({ size }: { size?: number }) => {
                         Log Out
                     </DropdownItem>
                 </DropdownSection>
-
                 <DropdownSection aria-label="Upgrade">
                     <DropdownItem
                         key="upgrade_to_pro"

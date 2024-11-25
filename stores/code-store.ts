@@ -8,25 +8,29 @@ interface Language {
 interface CodeStoreState {
     code: string;
     language: Language;
-    loading: boolean;
+    running: boolean;
     output: string[];
     error: boolean;
+    editorLoading: boolean;
     setCode: (code: string) => void;
     setLanguage: (language: Language) => void;
-    setLoading: (loading: boolean) => void;
+    setRunning: (running: boolean) => void;
     setOutput: (output: string[]) => void;
     setError: (error: boolean) => void;
+    setEditorLoading: (editorLoading: boolean) => void;
 }
 
 export const useCodeStore = create<CodeStoreState>((set) => ({
     code: "",
     language: { name: "", version: "" },
-    loading: false,
+    running: false,
     output: [],
     error: false,
+    editorLoading: true,
     setCode: (code) => set({ code }),
     setLanguage: (language) => set({ language }),
-    setLoading: (loading) => set({ loading }),
+    setRunning: (running) => set({ running }),
     setOutput: (output) => set({ output }),
     setError: (error) => set({ error }),
+    setEditorLoading: (editorLoading: boolean) => set({ editorLoading }),
 }));

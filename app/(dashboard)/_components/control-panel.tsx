@@ -11,7 +11,7 @@ import {
 import { Button } from "@nextui-org/button";
 import { useState, useMemo } from "react";
 
-import CreateSnap from "@/app/(dashboard)/_components/create-snap";
+import CreateSnapModal from "@/app/(dashboard)/_components/create-snap-modal";
 import useMediaQuery from "@/hooks/media-query";
 
 export default function ControlPanel() {
@@ -67,7 +67,7 @@ export default function ControlPanel() {
                         </DropdownItem>
                     </DropdownMenu>
                 </Dropdown>
-                <CreateSnap isMobile={isMobile} />
+                <CreateSnapModal isMobile={isMobile} />
             </div>
         </div>
     );
