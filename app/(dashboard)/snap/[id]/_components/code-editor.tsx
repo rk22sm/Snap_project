@@ -27,13 +27,11 @@ export default function CodeEditor({
     }, []);
 
     function handleEditorDidMount(editor: editor.IStandaloneCodeEditor) {
-        console.log("Editor mounted");
         editorRef.current = editor;
         editor.focus();
         setCode(initialCode || "");
         setLanguage({ name: language || "", version: version || "" });
         setEditorLoading(false);
-        console.log("Editor loading state set to false");
     }
 
     function handleOnchange(value: string | undefined) {
