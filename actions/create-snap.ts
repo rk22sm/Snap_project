@@ -1,4 +1,4 @@
-export const CreateSnippet = async (
+export const CreateSnap = async (
     values: { snapName: string; language: string; visibility: string },
     userId: string | undefined,
     code: string,

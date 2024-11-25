@@ -8,9 +8,7 @@ interface DashboardLayoutProps {
     children: ReactNode;
 }
 
-export default async function DashboardLayout({
-    children,
-}: DashboardLayoutProps) {
+export default async function layout({ children }: DashboardLayoutProps) {
     const session = await getServerSession(authOptions);
 
     if (!session) {

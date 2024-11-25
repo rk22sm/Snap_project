@@ -10,7 +10,7 @@ export default function SnapInfoButton({
 }) {
     return (
         <Button
-            className="flex h-8 cursor-pointer items-center gap-2 rounded px-2"
+            className="flex h-8 min-w-fit cursor-pointer items-center gap-2 rounded px-2"
             variant="light"
         >
             <Image height={20} radius="sm" src={imgURL} width={20} />

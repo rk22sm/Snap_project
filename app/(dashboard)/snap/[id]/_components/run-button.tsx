@@ -8,11 +8,11 @@ import { useCodeStore } from "@/stores";
 import { ExecuteCode } from "@/actions";
 
 export default function RunButton() {
-    const { code, language, loading, setLoading, setOutput, setError } =
+    const { code, language, running, setRunning, setOutput, setError } =
         useCodeStore();
 
     async function getOutput() {
-        setLoading(true);
+        setRunning(true);
         const requestData = {
             language: language.name,
             version: language.version,
@@ -26,13 +26,20 @@ export default function RunButton() {
         try {
             const result = await ExecuteCode(requestData);
 
-            setOutput(result.run.output.split("\n"));
-            setLoading(false);
-            setError(false);
-            toast.success("Compiled Successfully");
+            if (!result.run.stderr) {
+                setOutput(result.run.output.split("\n"));
+                setError(false);
+                toast.success("Compiled Successfully");
+            } else {
+                setOutput(result.run.output.split("\n"));
+                setError(true);
+                toast.error("Compile Error!");
+            }
+
+            setRunning(false);
         } catch (error) {
             setError(true);
-            setLoading(false);
+            setRunning(false);
             toast.error("Failed to compile the Code");
         }
     }
@@ -42,10 +49,10 @@ export default function RunButton() {
             <Button
                 className="h-8 justify-self-center text-sm font-semibold text-white"
                 color="success"
-                isDisabled={loading}
+                isDisabled={running}
                 size="sm"
                 startContent={
-                    loading ? (
+                    running ? (
                         <LoaderCircle
                             className="animate-spinner-linear-spin"
                             size={16}

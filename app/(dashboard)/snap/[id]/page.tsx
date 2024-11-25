@@ -8,7 +8,7 @@ import {
 import CodeEditor from "@/app/(dashboard)/snap/[id]/_components/code-editor";
 import { languageOptions } from "@/config/languages";
 import { authOptions } from "@/lib/auth";
-import { GetSnippet } from "@/actions";
+import { GetSnap } from "@/actions";
 import { BackToHomeButton } from "@/app/(dashboard)/snap/[id]/_components/back-to-home-button";
 import RunButton from "@/app/(dashboard)/snap/[id]/_components/run-button";
 import OutputArea from "@/app/(dashboard)/snap/[id]/_components/output-area";
@@ -17,27 +17,30 @@ import { NavMenu } from "@/components/nav-menu";
 
 export default async function page({ params }: { params: { id: string } }) {
     const session = await getServerSession(authOptions);
-    const snap = await GetSnippet(params.id);
 
-    // if the user is not logged in
-    if (!session) {
-        return <div>Sign in First</div>;
+    let snap;
+
+    try {
+        snap = await GetSnap(params.id);
+    } catch (error) {
+        // TODO: Make Page for the failed loading Snippet
+        return <div>Unable to load snap. Please try again later.</div>;
     }
 
-    // if there is no snap
+    // If no snap is found
     if (!snap) {
-        return <div>no snaps found</div>;
+        // TODO: Make Page for No Snaps Found
+        return <div>No snaps found.</div>;
     }
 
-    // if everything is fine
     const { name, language, code, authorId, visibility } = snap;
 
-    // check if the user is the owner of the snap or snap is public
+    // Check if the user is authorized to view the snap
     if (!(session?.user?.id === authorId || visibility === "public")) {
         return (
             <div>
-                You are not authorized to view this snap publicly. Contact the
-                owner in case you want to see the snap.
+                You are not authorized to view this snap. Contact the owner for
+                access.
             </div>
         );
     }
@@ -78,7 +81,6 @@ export default async function page({ params }: { params: { id: string } }) {
                 </div>
                 <RunButton />
                 <div className="flex h-full items-center justify-end">
-                    {/*<ThemeSwitch size={20} />*/}
                     <NavMenu size={24} />
                 </div>
             </nav>
