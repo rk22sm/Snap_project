@@ -88,6 +88,6 @@
         "prisma": "^5.20.0",
         "tailwind-variants": "0.3.0",
         "tailwindcss": "3.4.3",
-        "typescript": "5.0.4"
+        "typescript": "5.7.2"
     }
 }
