@@ -63,6 +63,8 @@ const SignUpForm = () => {
             toast.error(
                 "An unexpected error occurred. Please try again later.",
             );
+        } finally {
+            setAuthLoading((prev) => ({ ...prev, credential: false }));
         }
     };
 
@@ -80,6 +82,8 @@ const SignUpForm = () => {
             toast.error(
                 "An unexpected error occurred. Please try again later.",
             );
+        } finally {
+            setAuthLoading((prev) => ({ ...prev, credential: false }));
         }
     };
 
