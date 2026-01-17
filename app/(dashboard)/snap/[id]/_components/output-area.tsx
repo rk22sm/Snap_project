@@ -1,20 +1,40 @@
 "use client";
 
 import { Terminal } from "lucide-react";
+import { useEffect, useState } from "react";
 
 import { useCodeStore } from "@/stores";
 import OutputAreaSkeleton from "@/app/(dashboard)/snap/[id]/_components/output-area-skeleton";
 
+const TerminalLoader = () => {
+    const [frame, setFrame] = useState(0);
+    const frames = ["⣾", "⣷", "⣯", "⣟", "⡿", "⢿", "⣻", "⣽"];
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setFrame((prev) => (prev + 1) % frames.length);
+        }, 100);
+
+        return () => clearInterval(interval);
+    }, []);
+
+    return (
+        <p className="flex items-center gap-2 font-mono text-yellow-500">
+            {frames[frame]} Running...
+        </p>
+    );
+};
+
 export default function OutputArea() {
     const { output, error, running, editorLoading } = useCodeStore();
 
-    if (running) return <p>Running...</p>;
+    if (running) return <TerminalLoader />;
 
     if (editorLoading) return <OutputAreaSkeleton />;
 
     // TODO: Reserve history for output and give remove history functionality
     return (
-        <div className="relative h-full w-full">
+        <div className="relative h-full w-full overflow-auto">
             {output.length !== 0 ? (
                 <div className="flex gap-2">
                     <span className="text-yellow-500">$</span>

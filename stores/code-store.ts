@@ -12,12 +12,18 @@ interface CodeStoreState {
     output: string[];
     error: boolean;
     editorLoading: boolean;
+    isSaving: boolean;
+    snapId: string;
+    lastSavedCode: string;
     setCode: (code: string) => void;
     setLanguage: (language: Language) => void;
     setRunning: (running: boolean) => void;
     setOutput: (output: string[]) => void;
     setError: (error: boolean) => void;
     setEditorLoading: (editorLoading: boolean) => void;
+    setIsSaving: (isSaving: boolean) => void;
+    setSnapId: (snapId: string) => void;
+    setLastSavedCode: (lastSavedCode: string) => void;
 }
 
 export const useCodeStore = create<CodeStoreState>((set) => ({
@@ -27,10 +33,16 @@ export const useCodeStore = create<CodeStoreState>((set) => ({
     output: [],
     error: false,
     editorLoading: true,
+    isSaving: false,
+    snapId: "",
+    lastSavedCode: "",
     setCode: (code) => set({ code }),
     setLanguage: (language) => set({ language }),
     setRunning: (running) => set({ running }),
     setOutput: (output) => set({ output }),
     setError: (error) => set({ error }),
     setEditorLoading: (editorLoading: boolean) => set({ editorLoading }),
+    setIsSaving: (isSaving: boolean) => set({ isSaving }),
+    setSnapId: (snapId: string) => set({ snapId }),
+    setLastSavedCode: (lastSavedCode: string) => set({ lastSavedCode }),
 }));
