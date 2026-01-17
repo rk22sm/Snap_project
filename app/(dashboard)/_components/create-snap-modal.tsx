@@ -116,7 +116,7 @@ export default function CreateSnapModal({ isMobile }: { isMobile: boolean }) {
             </Button>
             <Modal
                 hideCloseButton={isLoading}
-                isDismissable={!isLoading}
+                isDismissable={false}
                 isOpen={isOpen}
                 placement="top"
                 onClose={handleModalClose}
@@ -138,10 +138,9 @@ export default function CreateSnapModal({ isMobile }: { isMobile: boolean }) {
                                 label="Select Language"
                                 placeholder="Search for a programming language"
                                 required={false}
-                                value={form.watch("language")}
-                                width="full"
-                                onInputChange={(value) => {
-                                    form.setValue("language", value, {
+                                selectedKey={form.watch("language") || null}
+                                onSelectionChange={(key) => {
+                                    form.setValue("language", key as string, {
                                         shouldValidate: true,
                                     });
                                 }}

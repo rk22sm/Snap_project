@@ -8,13 +8,20 @@ import { CommandMenu } from "@/components/command-menu";
 import { authOptions } from "@/lib/auth";
 import { GetSnaps } from "@/actions";
 
-export default async function Page() {
+export default async function Page({
+    searchParams,
+}: {
+    searchParams: { query?: string; sort?: "asc" | "desc" };
+}) {
     const session = await getServerSession(authOptions);
+
+    const query = searchParams?.query || "";
+    const sort = searchParams?.sort === "asc" ? "asc" : "desc";
 
     let snapData;
 
     try {
-        snapData = await GetSnaps(session?.user.id);
+        snapData = await GetSnaps(session?.user.id, query, sort);
     } catch (error) {
         // TODO: Make Page for the failed loading Snippets [No Internet / Server Error]
         return <div>Unable to load snaps. Please try again later.</div>;

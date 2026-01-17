@@ -17,7 +17,8 @@
 ![GitHub stars](https://img.shields.io/github/stars/RanitManik/CodeSnap?style=default)
 ![GitHub forks](https://img.shields.io/github/forks/RanitManik/CodeSnap?style=default)
 ![Wakatime](https://wakatime.com/badge/github/RanitManik/CodeSnap.svg)
-</div>  
+
+</div>
 
 Welcome to **CodeSnap**, a lightweight app for creating, sharing, running, and viewing code snippets with ease. Built to
 simplify code sharing, CodeSnap enables users to generate a shareable link for any snippet, making collaboration more
@@ -83,22 +84,22 @@ and test code within seconds.
 
 1. **Clone the repository:**
 
-   ```bash
-   git clone https://github.com/RanitManik/CodeSnap.git
-   cd CodeSnap
-   ```
+    ```bash
+    git clone https://github.com/RanitManik/CodeSnap.git
+    cd CodeSnap
+    ```
 
 2. **Install dependencies:**
 
-   ```bash
-   npm install
-   ```
+    ```bash
+    npm install
+    ```
 
-   or
+    or
 
-   ```bash
-   yarn install
-   ```
+    ```bash
+    yarn install
+    ```
 
 ### Running the Development Server
 
@@ -165,25 +166,25 @@ Contributions to CodeSnap are welcome! To contribute:
 1. Fork the repository.
 2. Create a new branch for your feature or bug fix:
 
-   ```bash
-   git checkout -b feature-name
-   ```
+    ```bash
+    git checkout -b feature-name
+    ```
 
 3. Make your changes and commit them with clear, descriptive messages.
 4. Push your changes to your fork:
 
-   ```bash
-   git push origin feature-name
-   ```
+    ```bash
+    git push origin feature-name
+    ```
 
 5. Open a pull request, detailing the changes and improvements you’ve made.
 
 ## Links
 
-| Environment        | Link                                                       |
-|--------------------|------------------------------------------------------------|
-| Development Server | [beta.codesnap.pro](https://beta.codesnap.pro)             |
-| Production Server  | [codesnap.pro](https://www.codesnap.pro)                   |
+| Environment        | Link                                           |
+| ------------------ | ---------------------------------------------- |
+| Development Server | [beta.codesnap.pro](https://beta.codesnap.pro) |
+| Production Server  | [codesnap.pro](https://www.codesnap.pro)       |
 
 ## Contact
 
@@ -233,4 +234,3 @@ learning.
 <p align="center">
    Thank you for using <strong>CodeSnap</strong>! Happy coding! 👨‍💻
 </p>
-

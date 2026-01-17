@@ -11,6 +11,7 @@ import { authOptions } from "@/lib/auth";
 import { GetSnap } from "@/actions";
 import { BackToHomeButton } from "@/app/(dashboard)/snap/[id]/_components/back-to-home-button";
 import RunButton from "@/app/(dashboard)/snap/[id]/_components/run-button";
+import SaveButton from "@/app/(dashboard)/snap/[id]/_components/save-button";
 import OutputArea from "@/app/(dashboard)/snap/[id]/_components/output-area";
 import SnapInfoButton from "@/app/(dashboard)/snap/[id]/_components/snap-info-button";
 import { NavMenu } from "@/components/nav-menu";
@@ -79,7 +80,10 @@ export default async function page({ params }: { params: { id: string } }) {
                         snapName={name}
                     />
                 </div>
-                <RunButton />
+                <div className="flex items-center justify-center gap-2">
+                    <SaveButton />
+                    <RunButton />
+                </div>
                 <div className="flex h-full items-center justify-end">
                     <NavMenu size={24} />
                 </div>
@@ -93,6 +97,7 @@ export default async function page({ params }: { params: { id: string } }) {
                     <CodeEditor
                         initialCode={code}
                         language={getMonacoEditorLangByLanguageName(language)}
+                        snapId={snap.id}
                         version={getLanguageVersionByLanguageName(language)}
                     />
                 </ResizablePanel>

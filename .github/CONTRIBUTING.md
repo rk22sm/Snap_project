@@ -11,38 +11,38 @@ follow to make the contribution process smooth and effective for everyone involv
 
 2. **Clone Your Fork**:
     - Open your terminal and run:
-      ```sh
-      git clone https://github.com/RanitManik/CodeSnap.git
-      ```
+        ```sh
+        git clone https://github.com/RanitManik/CodeSnap.git
+        ```
 
 3. **Create a Branch**:
     - Move into the cloned directory:
-      ```sh
-      cd CodeSnap
-      ```
+        ```sh
+        cd CodeSnap
+        ```
     - Create a new branch for your changes:
-      ```sh
-      git checkout -b feature-branch-name
-      ```
+        ```sh
+        git checkout -b feature-branch-name
+        ```
 
 4. **Make Your Changes**:
     - Implement your changes in your local repository.
 
 5. **Commit Your Changes**:
     - Add your changes:
-      ```sh
-      git add .
-      ```
+        ```sh
+        git add .
+        ```
     - Commit your changes with a meaningful message:
-      ```sh
-      git commit -m "Description of changes"
-      ```
+        ```sh
+        git commit -m "Description of changes"
+        ```
 
 6. **Push to Your Fork**:
     - Push your changes to your forked repository:
-      ```sh
-      git push origin feature-branch-name
-      ```
+        ```sh
+        git push origin feature-branch-name
+        ```
 
 7. **Create a Pull Request**:
     - Go to the original repository.
@@ -71,23 +71,25 @@ follow to make the contribution process smooth and effective for everyone involv
 
 - Use clear and concise commit messages.
 - Follow the format:
-  ```
-  [type]: [subject]
-  
-  [body]
-  
-  [footer]
-  ```
 
-  Example:
-  ```
-  feat: add new feature for user authentication
-  
-  Implemented user login and registration functionality.
-  Added tests for the new feature.
-  
-  Closes #123
-  ```
+    ```
+    [type]: [subject]
+
+    [body]
+
+    [footer]
+    ```
+
+    Example:
+
+    ```
+    feat: add new feature for user authentication
+
+    Implemented user login and registration functionality.
+    Added tests for the new feature.
+
+    Closes #123
+    ```
 
 ## Issue Reporting
 

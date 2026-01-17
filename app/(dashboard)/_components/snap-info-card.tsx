@@ -58,7 +58,7 @@ export default function SnapInfoCard({
                         </p>
                     </div>
                 </div>
-                <CardMenu />
+                <CardMenu snapId={id} />
             </CardHeader>
             <Divider />
             <CardFooter>
