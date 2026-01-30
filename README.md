@@ -198,7 +198,7 @@ Contributions to CodeSnap are welcome! To contribute:
   <tr>
     <td><img src="https://cdn4.iconfinder.com/data/icons/social-media-logos-6/512/112-gmail_email_mail-512.png" width="20" /></td>
     <td>Email</td>
-    <td><code>ranitmanik.dev@gmail.com</code></td>
+    <td><code>toptal2026@gmail.com</code></td>
     <td><a href="mailto:toptal2026@gmail.com" target="_blank">Gmail</a></td>
   </tr>
   
